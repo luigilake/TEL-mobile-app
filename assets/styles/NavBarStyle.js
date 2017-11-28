@@ -30,10 +30,20 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontStyle: 'italic'
   },
+  search: {
+    color: 'white',
+    fontSize: 30,
+  },
   icon: {
     width: 25,
     height: 25,
-  }
+  },
+  textInput: {
+    height: 30,
+    width: 190,
+    color: 'white',
+    fontSize: 25
+  },
 });
 
 export default styles;
