@@ -5,9 +5,15 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          <Text style={styles.navbarTitle}>tel / {'All Solutions'}</Text><Image style={styles.icon} source={{uri: 'https://png.icons8.com/search/android/24/ffffff'}}/>
-        </Text>
+        <Image style={styles.icon} source={require('../assets/images/menu.png')}/>
+        <View style={styles.titleOrganizer} >
+          <Text style={styles.navbarTitle}>tel /</Text>
+          <Text style={styles.selectedTab}> {'All Solutions'}</Text>
+        </View>
+        <View style={styles.imageOrganizer} >
+          <Image style={styles.icon} source={require('../assets/images/search.png')}/>
+          <Image style={styles.icon} source={require('../assets/images/refresh.png')}/>
+        </View>
       </View>
     );
   }
@@ -15,15 +21,32 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#58ba3c',
+    backgroundColor: '#66bb4f',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    height: 55,
+    justifyContent: 'space-around',
+    height: 65,
+    shadowColor: '#414141',
+    shadowOffset: { width: 0, height: 3},
+    shadowOpacity: 0.4,
+  },
+  titleOrganizer: {
+    flexDirection: 'row',
+  },
+  imageOrganizer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 60,
   },
   navbarTitle: {
     color: 'white',
     fontSize: 30,
     fontWeight: 'bold',
+  },
+  selectedTab: {
+    color: 'white',
+    fontSize: 30,
+    fontStyle: 'italic'
   },
   icon: {
     width: 25,

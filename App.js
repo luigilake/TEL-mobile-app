@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   topBar: {
-    backgroundColor: '#52ac38',
+    backgroundColor: '#59a345',
     height: 22,
   }
 });
