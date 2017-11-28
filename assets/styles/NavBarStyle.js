@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   },
   titleOrganizer: {
     flexDirection: 'row',
+    width: 220,
   },
   imageOrganizer: {
     flexDirection: 'row',
