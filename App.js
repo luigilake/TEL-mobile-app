@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import NavBar from './containers/NavBar'
+import styles from './assets/styles/GeneralStyle'
 
 export default class App extends React.Component {
   render() {
@@ -14,15 +15,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    height: 50,
-  },
-  topBar: {
-    backgroundColor: '#59a345',
-    height: 22,
-  }
-});
