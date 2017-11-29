@@ -13,12 +13,12 @@ const styles = StyleSheet.create({
   },
   titleOrganizer: {
     flexDirection: 'row',
-    width: 220,
+    width: 200,
   },
   imageOrganizer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 60,
+    width: 65,
   },
   navbarTitle: {
     color: 'white',
@@ -30,10 +30,20 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontStyle: 'italic'
   },
+  search: {
+    color: 'white',
+    fontSize: 30,
+  },
   icon: {
     width: 25,
     height: 25,
-  }
+  },
+  textInput: {
+    height: 30,
+    width: 170,
+    color: 'white',
+    fontSize: 25
+  },
 });
 
 export default styles;
