@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableWithoutFeedback, TextInput, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Alert, TextInput, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import styles from '../../assets/styles/NavBarStyle'
 import BeginSearch from '../components/BeginSearch'
@@ -22,6 +22,18 @@ export default class NavBar extends React.Component {
       }
     }
 
+    let refresh = () => {
+      Alert.alert(
+        'Are you sure you want to update the database?',
+        'Checking for updates requires an internet connection and may result in charges when not on WiFi.',
+        [
+          {text: 'Update', onPress: () => console.log('OK Pressed')},
+          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        ],
+        { cancelable: false }
+      )
+    }
+
     return (
       <View style={styles.container}>
         <Image style={styles.icon} source={require('../../assets/images/menu.png')}/>
@@ -31,7 +43,9 @@ export default class NavBar extends React.Component {
         </View>
         <View style={styles.imageOrganizer} >
             {searchIcon}
-          <Image style={styles.icon} source={require('../../assets/images/refresh.png')}/>
+          <TouchableOpacity onPress={refresh}>
+            <Image style={styles.icon} source={require('../../assets/images/refresh.png')}/>
+          </TouchableOpacity>
         </View>
       </View>
     );

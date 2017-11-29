@@ -13,12 +13,12 @@ const styles = StyleSheet.create({
   },
   titleOrganizer: {
     flexDirection: 'row',
-    width: 220,
+    width: 200,
   },
   imageOrganizer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 60,
+    width: 65,
   },
   navbarTitle: {
     color: 'white',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 30,
-    width: 190,
+    width: 170,
     color: 'white',
     fontSize: 25
   },
