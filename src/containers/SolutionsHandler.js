@@ -32,7 +32,11 @@ export default class SolutionsIndex extends React.Component {
   render() {
     let data = this.state.solutions.map((solution, index) => {
       return(
-        { key: index, name: solution.name, contact: solution["#contact"]["name"]}
+        { key: solution.id,
+          name: solution.name,
+          contact: solution["#contact"]["name"],
+          image: `https://images.techxlab.org/${solution.image}`
+        }
       )
     })
 
@@ -45,6 +49,7 @@ export default class SolutionsIndex extends React.Component {
               key={item.key}
               name={item.name}
               contact={item.contact}
+              image={item.image}
             />
           }
         />
