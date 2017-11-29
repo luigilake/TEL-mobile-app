@@ -3,6 +3,7 @@ import { Keyboard, TouchableWithoutFeedback, StyleSheet, Text, View } from 'reac
 
 import NavBar from './containers/NavBar'
 import styles from '../assets/styles/GeneralStyle'
+import SolutionsHandler from './containers/SolutionsHandler'
 
 export default class Main extends React.Component {
   constructor(props){
@@ -47,6 +48,7 @@ export default class Main extends React.Component {
             clearSearch={this.clearSearch}
             searchValue={this.state.searchTerm}
           />
+          <SolutionsHandler />
         </View>
       </TouchableWithoutFeedback>
     );
