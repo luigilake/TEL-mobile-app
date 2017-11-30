@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 40,
     height: 40,
+    marginRight: 10,
   },
   image: {
     width: 90,
@@ -26,15 +27,18 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontWeight: 'bold',
     fontSize: 20,
-    marginTop: 10,
     marginBottom: 1,
   },
   subTitle: {
     fontSize: 15,
-    marginBottom: 10,
   },
   textBox: {
     width: 200,
+    margin: 10,
+  },
+  accessSolution: {
+    flexDirection: 'row',
+    alignItems: 'center',
   }
 });
 
