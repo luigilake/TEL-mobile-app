@@ -25,7 +25,12 @@ export default class SolutionsIndex extends React.Component {
     })
     .then(response => response.json())
     .then(response => {
-      this.setState({ solutions: response["Solutions"] })
+      let validSolutions = response["Solutions"].filter( solution => {
+        if(solution["publish"]){
+          return(solution["publish"].includes("tel"))
+        }
+      })
+      this.setState({ solutions: validSolutions })
     })
   }
 
