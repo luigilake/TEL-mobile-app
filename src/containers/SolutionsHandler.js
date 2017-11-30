@@ -37,12 +37,11 @@ export default class SolutionsHandler extends React.Component {
   }
 
   favoriteSolutions(id){
-    let favorites = this.state.favorites
-    let favoritesArray;
-    if(this.state.favorites.includes(id)){
-      favoritesArray = favorites.filter(favorite => favorite.id != id )
+    let favoritesArray = []
+    if(!this.state.favorites.includes(id)){
+      favoritesArray = this.state.favorites.concat(id)
     } else {
-      favoritesArray << id
+      favoritesArray = this.state.favorites.filter( favorite => favorite != id )
     }
     this.setState({ favorites: favoritesArray })
   }
