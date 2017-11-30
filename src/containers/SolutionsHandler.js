@@ -9,7 +9,9 @@ export default class SolutionsIndex extends React.Component {
     super(props);
     this.state = {
       solutions: [],
+      favorites: []
     }
+    this.favoriteSolutions = this.favoriteSolutions.bind(this);
   }
 
   componentDidMount(){
@@ -34,13 +36,29 @@ export default class SolutionsIndex extends React.Component {
     })
   }
 
+  favoriteSolutions(id){
+    let favorites = this.state.favorites
+    let favoritesArray;
+    if(favorites.includes(id)){
+      favoritesArray = favorites.filter(favorite => favorite.id != id )
+    } else {
+      favoritesArray << id
+    }
+    this.setState({ favorites: favoritesArray })
+  }
+
   render() {
     let data = this.state.solutions.map((solution, index) => {
+      let favorited = false;
+      if(this.state.favorites.includes(solution.id)){
+        favorited = true;
+      }
       return(
         { key: solution.id,
           name: solution.name,
           contact: solution["#contact"]["name"],
-          image: `https://images.techxlab.org/${solution.image}`
+          image: `https://images.techxlab.org/${solution.image}`,
+          favorited: favorited,
         }
       )
     })
