@@ -5,6 +5,14 @@ import styles from '../../assets/styles/SolutionTileStyle'
 
 export default class SolutionTile extends React.PureComponent {
   render(){
+    let favorited = <Image style={styles.icon} source={require('../../assets/images/blank-heart.png')} />
+    if(this.props.favorited){
+      favorited = <Image style={styles.icon} source={require('../../assets/images/filled-heart.png')} />
+    }
+
+    let handleFavorite = () => {
+      this.props.handleFavorite(this.props.id)
+    }
     return (
         <View style={styles.container}>
           <TouchableOpacity style={styles.accessSolution}>
@@ -14,8 +22,8 @@ export default class SolutionTile extends React.PureComponent {
               <Text style={styles.subTitle}>{this.props.contact}</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Image style={styles.icon} source={require('../../assets/images/blank-heart.png')} />
+          <TouchableOpacity onPress={handleFavorite}>
+            {favorited}
           </TouchableOpacity>
         </View>
     );

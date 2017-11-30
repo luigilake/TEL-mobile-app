@@ -4,7 +4,7 @@ import { Alert, TextInput, StyleSheet, Text, View, Image, TouchableOpacity, Flat
 import styles from '../../assets/styles/SolutionsIndexStyle'
 import SolutionTile from '../components/SolutionTile'
 
-export default class SolutionsIndex extends React.Component {
+export default class SolutionsHandler extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -39,7 +39,7 @@ export default class SolutionsIndex extends React.Component {
   favoriteSolutions(id){
     let favorites = this.state.favorites
     let favoritesArray;
-    if(favorites.includes(id)){
+    if(this.state.favorites.includes(id)){
       favoritesArray = favorites.filter(favorite => favorite.id != id )
     } else {
       favoritesArray << id
@@ -48,13 +48,15 @@ export default class SolutionsIndex extends React.Component {
   }
 
   render() {
+    let favorites = this.state.favorites
     let data = this.state.solutions.map((solution, index) => {
       let favorited = false;
-      if(this.state.favorites.includes(solution.id)){
+      if(favorites.includes(solution.id)){
         favorited = true;
       }
       return(
-        { key: solution.id,
+        {
+          key: solution.id,
           name: solution.name,
           contact: solution["#contact"]["name"],
           image: `https://images.techxlab.org/${solution.image}`,
@@ -70,9 +72,12 @@ export default class SolutionsIndex extends React.Component {
           renderItem={({item}) =>
             <SolutionTile
               key={item.key}
+              id={item.key}
               name={item.name}
               contact={item.contact}
               image={item.image}
+              favorited={item.favorited}
+              handleFavorite={this.favoriteSolutions}
             />
           }
         />
