@@ -27,12 +27,12 @@ export default class Main extends React.Component {
   }
 
   clearSearch(){
-    this.setState({ searching: true, searchTerm: '' })
+    this.setState({ searching: false, searchTerm: '' })
   }
 
   searchUnfocus(){
-    Keyboard.dismiss
     this.setState({ searching: false })
+    Keyboard.dismiss
   }
 
   render() {
