@@ -1,9 +1,11 @@
 import React from 'react';
 import { Keyboard, TouchableWithoutFeedback, StyleSheet, Text, View } from 'react-native';
+import SideMenu from 'react-native-side-menu';
 
 import NavBar from './containers/NavBar'
 import styles from '../assets/styles/GeneralStyle'
 import SolutionsHandler from './containers/SolutionsHandler'
+import Menu from './components/SideMenu'
 
 export default class Main extends React.Component {
   constructor(props){
@@ -36,21 +38,24 @@ export default class Main extends React.Component {
   }
 
   render() {
+    let menu = <Menu />
     return (
-      <TouchableWithoutFeedback onPress={this.searchUnfocus}>
-        <View style={styles.container}>
-          <View style={styles.topBar}>
+      <SideMenu menu={menu}>
+        <TouchableWithoutFeedback onPress={this.searchUnfocus}>
+          <View style={styles.container}>
+            <View style={styles.topBar}>
+            </View>
+            <NavBar
+              searching={this.state.searching}
+              onSearch={this.onSearch}
+              onSearchChange={this.onSearchChange}
+              clearSearch={this.clearSearch}
+              searchValue={this.state.searchTerm}
+            />
+            <SolutionsHandler />
           </View>
-          <NavBar
-            searching={this.state.searching}
-            onSearch={this.onSearch}
-            onSearchChange={this.onSearchChange}
-            clearSearch={this.clearSearch}
-            searchValue={this.state.searchTerm}
-          />
-          <SolutionsHandler />
-        </View>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </SideMenu>
     );
   }
 }
