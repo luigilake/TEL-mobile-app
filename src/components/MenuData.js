@@ -39,4 +39,6 @@ const menuTabs = [
     image: 'about.png',
     title: 'About Us'
   },
-]
+];
+
+export default menuTabs;
