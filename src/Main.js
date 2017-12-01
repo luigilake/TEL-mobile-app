@@ -12,12 +12,14 @@ export default class Main extends React.Component {
     super(props);
     this.state = {
       searching: false,
-      searchTerm: ''
+      searchTerm: '',
+      menuOpen: true
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
     this.searchUnfocus = this.searchUnfocus.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   onSearch(){
@@ -33,24 +35,29 @@ export default class Main extends React.Component {
   }
 
   searchUnfocus(){
-    this.setState({ searching: false })
+    this.setState({ searching: false, menuOpen: false })
     Keyboard.dismiss
+  }
+
+  toggleMenu(){
+    console.log(!this.state.menuOpen)
+    this.setState({ menuOpen: !this.state.menuOpen })
   }
 
   render() {
     let menu = <Menu />
     return (
-      <SideMenu menu={menu}>
+      <SideMenu menu={menu} isOpen={this.state.menuOpen}>
         <TouchableWithoutFeedback onPress={this.searchUnfocus}>
           <View style={styles.container}>
-            <View style={styles.topBar}>
-            </View>
+            <View style={styles.topBar}></View>
             <NavBar
               searching={this.state.searching}
               onSearch={this.onSearch}
               onSearchChange={this.onSearchChange}
               clearSearch={this.clearSearch}
               searchValue={this.state.searchTerm}
+              toggleMenu={this.toggleMenu}
             />
             <SolutionsHandler />
           </View>

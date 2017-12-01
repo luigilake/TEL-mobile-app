@@ -36,7 +36,11 @@ export default class NavBar extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Image style={styles.icon} source={require('../../assets/images/menu.png')}/>
+        <View>
+        <TouchableOpacity onPress={this.props.toggleMenu}>
+          <Image style={styles.icon} source={require('../../assets/images/menu.png')}/>
+        </TouchableOpacity>
+        </View>
         <View style={styles.titleOrganizer} >
           <Text style={styles.navbarTitle}>tel / </Text>
           {title}
