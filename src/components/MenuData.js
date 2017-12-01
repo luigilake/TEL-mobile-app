@@ -4,39 +4,39 @@ const menuTabs = [
     title: 'All Solutions'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'favorites.png',
+    title: 'Favorites'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'agriculture.png',
+    title: 'Agriculture & Tools'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'energy.png',
+    title: 'Energy & Cooking'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'health.png',
+    title: 'Health & Medical'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'education.png',
+    title: 'Education & Connectivity'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'housing.png',
+    title: 'Housing & Transport'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'water.png',
+    title: 'Water & Sanitation'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'misc.png',
+    title: 'Additional Solutions'
   },
   {
-    image: 'all.png',
-    title: 'All Solutions'
+    image: 'about.png',
+    title: 'About Us'
   },
 ]
