@@ -105,9 +105,9 @@ export function categoryFilter(solutions, favorites, category){
         );
       })
       break;
-    case "Housing & Transport":
+    case "Water & Sanitation":
       newSolutions = solutions.filter( solution => {
-        return(solution.category.includes("housing"))
+        return(solution.category.includes("water"))
       })
       data = newSolutions.map((solution) => {
         return(
