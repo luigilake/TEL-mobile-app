@@ -13,69 +13,69 @@ const Menu = props => {
       <View style={styles.topBar}></View>
       <Image style={styles.logo} resizeMode='contain' source={require('../../assets/images/TEL_logo.png')}/>
 
-      <TouchableOpacity onPress={() => select('all')} >
+      <TouchableOpacity onPress={() => select('All Solutions')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/all.png')}/>
           <Text style={styles.text}>All Solutions</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => select('favorites')} >
+      <TouchableOpacity onPress={() => select('Favorites')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/favorites.png')}/>
           <Text style={styles.text}>Favorites</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('agriculture')} >
+      <TouchableOpacity onPress={() => select('Agriculture & Tools')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/agriculture.png')}/>
           <Text style={styles.text}>Agriculture & Tools</Text>
       </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('energy')} >
+      <TouchableOpacity onPress={() => select('Energy & Cooking')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/energy.png')}/>
           <Text style={styles.text}>Energy & Cooking</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('health')} >
+      <TouchableOpacity onPress={() => select('Health & Medicine')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/health.png')}/>
           <Text style={styles.text}>Health & Medicine</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('education')} >
+      <TouchableOpacity onPress={() => select('Education & Connectivity')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/education.png')}/>
           <Text style={styles.text}>Education & Connectivity</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('housing')} >
+      <TouchableOpacity onPress={() => select('Housing & Transport')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/housing.png')}/>
           <Text style={styles.text}>Housing & Transport</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('water')} >
+      <TouchableOpacity onPress={() => select('Water & Sanitation')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/water.png')}/>
           <Text style={styles.text}>Water & Sanitation</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('misc')} >
+      <TouchableOpacity onPress={() => select('Additional Solutions')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/misc.png')}/>
           <Text style={styles.text}>Additional Solutions</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('about')} >
+      <TouchableOpacity onPress={() => select('About Us')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/about.png')}/>
           <Text style={styles.text}>About Us</Text>

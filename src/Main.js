@@ -14,7 +14,7 @@ export default class Main extends React.Component {
       searching: false,
       searchTerm: '',
       menuOpen: true,
-      selectedCategory: 'all'
+      selectedCategory: 'All Solutions'
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -50,7 +50,6 @@ export default class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state.selectedCategory)
     let menu = <Menu selectCategory={this.selectCategory}/>
     return (
       <SideMenu menu={menu} isOpen={this.state.menuOpen}>
@@ -58,6 +57,7 @@ export default class Main extends React.Component {
           <View style={styles.container}>
             <View style={styles.topBar}></View>
             <NavBar
+              currentCategory={this.state.selectedCategory}
               searching={this.state.searching}
               onSearch={this.onSearch}
               onSearchChange={this.onSearchChange}
