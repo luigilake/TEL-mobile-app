@@ -13,7 +13,7 @@ export default class Main extends React.Component {
     this.state = {
       searching: false,
       searchTerm: '',
-      menuOpen: true,
+      menuOpen: false,
       selectedCategory: 'All Solutions'
     }
     this.onSearch = this.onSearch.bind(this);
