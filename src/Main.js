@@ -13,7 +13,7 @@ export default class Main extends React.Component {
     this.state = {
       searching: false,
       searchTerm: '',
-      menuOpen: true,
+      menuOpen: false,
       selectedCategory: 'All Solutions'
     }
     this.onSearch = this.onSearch.bind(this);
@@ -65,7 +65,7 @@ export default class Main extends React.Component {
               searchValue={this.state.searchTerm}
               toggleMenu={this.toggleMenu}
             />
-            <SolutionsHandler />
+            <SolutionsHandler selectedCategory={this.state.selectedCategory}/>
           </View>
         </TouchableWithoutFeedback>
       </SideMenu>
