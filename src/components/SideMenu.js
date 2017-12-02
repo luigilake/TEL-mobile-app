@@ -15,7 +15,7 @@ const Menu = props => {
 
       <TouchableOpacity onPress={() => select('All Solutions')} >
         <View style={styles.tileContainer}>
-          <Image style={styles.image} source={require('../../assets/images/menuImages/all.png')}/>
+          <Image style={styles.image} source={require('../../assets/images/menuImages/misc.png')}/>
           <Text style={styles.text}>All Solutions</Text>
         </View>
       </TouchableOpacity>
