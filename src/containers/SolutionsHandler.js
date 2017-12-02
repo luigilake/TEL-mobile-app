@@ -3,6 +3,7 @@ import { Alert, TextInput, StyleSheet, Text, View, Image, TouchableOpacity, Flat
 
 import styles from '../../assets/styles/SolutionsIndexStyle'
 import SolutionTile from '../components/SolutionTile'
+import categoryFilter from '../Javascript/CategoryFilter'
 
 export default class SolutionsHandler extends React.Component {
   constructor(props){
@@ -47,22 +48,9 @@ export default class SolutionsHandler extends React.Component {
   }
 
   render() {
-    let favorites = this.state.favorites
-    let data = this.state.solutions.map((solution, index) => {
-      let favorited = false;
-      if(favorites.includes(solution.id)){
-        favorited = true;
-      }
-      return(
-        {
-          key: solution.id,
-          name: solution.name,
-          contact: solution["#contact"]["name"],
-          image: `https://images.techxlab.org/${solution.image}`,
-          favorited: favorited,
-        }
-      )
-    })
+    let selectedCategory = this.props.selectedCategory;
+    let favorites = this.state.favorites;
+    let data = categoryFilter(this.state.solutions, favorites, selectedCategory)
 
     return (
       <View style={styles.container}>
