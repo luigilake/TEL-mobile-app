@@ -13,6 +13,22 @@ const styles = StyleSheet.create({
     width: 240,
     height: 100,
     marginLeft: 5,
+    marginBottom: 20,
+  },
+  tileContainer: {
+    flexDirection: 'row',
+    height: 50,
+    alignItems: 'center',
+  },
+  image: {
+    width: 30,
+    height: 30,
+    marginLeft: 10,
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginLeft: 5,
   }
 });
 
