@@ -40,10 +40,10 @@ const Menu = props => {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => select('Health & Medicine')} >
+      <TouchableOpacity onPress={() => select('Health & Medical')} >
         <View style={styles.tileContainer}>
           <Image style={styles.image} source={require('../../assets/images/menuImages/health.png')}/>
-          <Text style={styles.text}>Health & Medicine</Text>
+          <Text style={styles.text}>Health & Medical</Text>
         </View>
       </TouchableOpacity>
 

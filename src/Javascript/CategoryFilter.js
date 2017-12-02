@@ -85,6 +85,16 @@ export function categoryFilter(solutions, favorites, category){
         );
       })
       break;
+    case "Education & Connectivity":
+      newSolutions = solutions.filter( solution => {
+        return(solution.category.includes("education"))
+      })
+      data = newSolutions.map((solution) => {
+        return(
+          renderSolution(solution,favorites)
+        );
+      })
+      break;
 
   }
   return( data )
