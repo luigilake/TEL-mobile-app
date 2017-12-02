@@ -95,6 +95,26 @@ export function categoryFilter(solutions, favorites, category){
         );
       })
       break;
+    case "Housing & Transport":
+      newSolutions = solutions.filter( solution => {
+        return(solution.category.includes("housing"))
+      })
+      data = newSolutions.map((solution) => {
+        return(
+          renderSolution(solution,favorites)
+        );
+      })
+      break;
+    case "Housing & Transport":
+      newSolutions = solutions.filter( solution => {
+        return(solution.category.includes("housing"))
+      })
+      data = newSolutions.map((solution) => {
+        return(
+          renderSolution(solution,favorites)
+        );
+      })
+      break;
 
   }
   return( data )
