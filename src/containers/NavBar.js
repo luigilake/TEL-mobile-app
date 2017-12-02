@@ -10,7 +10,7 @@ import CurrentSearch from '../components/CurrentSearch'
 export default class NavBar extends React.Component {
   render() {
 
-    let title = <Text style={styles.selectedTab}>All Solutions</Text>
+    let title = <Text style={styles.selectedTab} numberOfLines={1}>{this.props.currentCategory}</Text>
     let searchIcon = <BeginSearch onSearch={this.props.onSearch}/>
 
     if(this.props.searchValue != '' || this.props.searching){

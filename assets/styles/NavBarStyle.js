@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
   selectedTab: {
     color: 'white',
     fontSize: 30,
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    width: 180,
   },
   search: {
     color: 'white',

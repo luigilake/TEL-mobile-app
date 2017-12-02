@@ -13,17 +13,19 @@ export default class Main extends React.Component {
     this.state = {
       searching: false,
       searchTerm: '',
-      menuOpen: true
+      menuOpen: true,
+      selectedCategory: 'All Solutions'
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
     this.searchUnfocus = this.searchUnfocus.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.selectCategory = this.selectCategory.bind(this);
   }
 
   onSearch(){
-    this.setState({ searching: !this.state.searching })
+    this.setState({ searching: !this.state.searching, menuOpen: false })
   }
 
   onSearchChange(text){
@@ -31,7 +33,7 @@ export default class Main extends React.Component {
   }
 
   clearSearch(){
-    this.setState({ searching: false, searchTerm: '' })
+    this.setState({ searching: false, searchTerm: '', menuOpen: false })
   }
 
   searchUnfocus(){
@@ -40,18 +42,22 @@ export default class Main extends React.Component {
   }
 
   toggleMenu(){
-    console.log(!this.state.menuOpen)
     this.setState({ menuOpen: !this.state.menuOpen })
   }
 
+  selectCategory(category){
+    this.setState({ selectedCategory: category, menuOpen: false })
+  }
+
   render() {
-    let menu = <Menu />
+    let menu = <Menu selectCategory={this.selectCategory}/>
     return (
       <SideMenu menu={menu} isOpen={this.state.menuOpen}>
         <TouchableWithoutFeedback onPress={this.searchUnfocus}>
           <View style={styles.container}>
             <View style={styles.topBar}></View>
             <NavBar
+              currentCategory={this.state.selectedCategory}
               searching={this.state.searching}
               onSearch={this.onSearch}
               onSearchChange={this.onSearchChange}
