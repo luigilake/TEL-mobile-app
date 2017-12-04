@@ -1,5 +1,5 @@
 import React from 'react';
-import { Keyboard, TouchableWithoutFeedback, StyleSheet, Text, View } from 'react-native';
+import { Modal, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 
 import NavBar from './containers/NavBar'
