@@ -10,11 +10,15 @@ export default class SolutionModal extends React.Component {
     let image = `https://images.techxlab.org/${data.image}`
     let history;
     let availability;
+    let specifications;
     if(data["#history-and-development"]){
       history = <ModalText title={'History & Development'} text={data["#history-and-development"]["_txt"]}/>
     }
     if(data["#availability"]){
       availability = <ModalText title={'Availability'} text={data["#availability"]["_txt"]}/>
+    }
+    if(data["#specifications"]){
+      specifications = <ModalText title={'Specifications'} text={data["#specifications"]["_txt"]}/>
     }
 
     return (
@@ -39,6 +43,7 @@ export default class SolutionModal extends React.Component {
               <ModalText title={'Solution Overview & Benefits'} text={data["_txt"]}/>
               {history}
               {availability}
+              {specifications}
             </ScrollView>
         </Modal>
     );
