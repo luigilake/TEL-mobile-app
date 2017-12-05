@@ -16,16 +16,19 @@ export default class SolutionModal extends React.Component {
         >
           <View style={styles.topBar}></View>
             <View>
-              <Image resizeMode='contain' style={styles.mainImage} source={{uri: image}} />
-              <View style={styles.titleDiv}>
-                <Text style={styles.solutionTitle}>{data.name}</Text>
-                <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
-              </View>
-            </View>
-            <View style={styles.closeView}>
-              <TouchableOpacity onPress={this.props.closeModal}>
-              <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
-              </TouchableOpacity>
+              <Image resizeMode='contain' style={styles.mainImage} source={{uri: image}}>
+                <View style={styles.titleDiv}>
+                  <TouchableOpacity onPress={this.props.closeModal}>
+                    <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
+                  </TouchableOpacity>
+                  <View>
+                    <Text style={styles.solutionTitle}>{data.name}</Text>
+                    <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
+                  </View>
+                </View>
+              </Image>
+              <Text>Solution Overview & Benefits</Text>
+
             </View>
         </Modal>
     );

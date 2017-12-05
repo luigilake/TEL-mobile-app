@@ -11,20 +11,13 @@ const styles = StyleSheet.create({
   closeIcon: {
     height: 40,
     width: 40,
-    margin: 5,
-  },
-  closeView: {
-    alignItems: 'flex-end',
-    position: 'absolute',
-    marginTop: 22,
+    margin: 10,
   },
   titleDiv: {
-    position: 'absolute',
     backgroundColor: 'rgba(50, 49, 49, 0.4)',
-    flex: 1,
     height: 380,
     width: 380,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
   mainImage: {
     flex: 1,
