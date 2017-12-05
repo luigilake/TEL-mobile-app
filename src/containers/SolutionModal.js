@@ -11,6 +11,7 @@ export default class SolutionModal extends React.Component {
     let history;
     let availability;
     let specifications;
+    let additionalInfo;
     if(data["#history-and-development"]){
       history = <ModalText title={'History & Development'} text={data["#history-and-development"]["_txt"]}/>
     }
@@ -19,6 +20,9 @@ export default class SolutionModal extends React.Component {
     }
     if(data["#specifications"]){
       specifications = <ModalText title={'Specifications'} text={data["#specifications"]["_txt"]}/>
+    }
+    if(data["#additional-information"]){
+      additionalInfo = <ModalText title={'Additional Information'} text={data["#additional-information"]["_txt"]}/>
     }
 
     return (
@@ -44,6 +48,7 @@ export default class SolutionModal extends React.Component {
               {history}
               {availability}
               {specifications}
+              {additionalInfo}
             </ScrollView>
         </Modal>
     );
