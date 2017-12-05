@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   details: {
-    margin: 10
+    margin: 10,
+    marginBottom: 0,
   },
   overViewTitle: {
     fontWeight: 'bold',

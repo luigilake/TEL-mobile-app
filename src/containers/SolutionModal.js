@@ -9,8 +9,12 @@ export default class SolutionModal extends React.Component {
     let data = this.props.data
     let image = `https://images.techxlab.org/${data.image}`
     let history;
-    if(data["history-and-development"]){
-      history = 'sjndfjk'
+    let availability;
+    if(data["#history-and-development"]){
+      history = <ModalText title={'History & Development'} text={data["#history-and-development"]["_txt"]}/>
+    }
+    if(data["#availability"]){
+      availability = <ModalText title={'Availability'} text={data["#availability"]["_txt"]}/>
     }
 
     return (
@@ -33,6 +37,8 @@ export default class SolutionModal extends React.Component {
                 </View>
               </Image>
               <ModalText title={'Solution Overview & Benefits'} text={data["_txt"]}/>
+              {history}
+              {availability}
             </ScrollView>
         </Modal>
     );
