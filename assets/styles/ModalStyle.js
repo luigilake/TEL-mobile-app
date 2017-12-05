@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#59a345',
     height: 22,
   },
+  closeIcon: {
+    height: 40,
+    width: 40,
+  }
 });
 
 export default styles;

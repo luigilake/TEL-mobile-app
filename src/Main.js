@@ -76,7 +76,10 @@ export default class Main extends React.Component {
               selectedCategory={this.state.selectedCategory}
               toggleModal={this.toggleModal}
             />
-            <SolutionModal modalOpen={this.state.modalOpen}/>
+            <SolutionModal
+              modalOpen={this.state.modalOpen}
+              toggleModal={this.toggleModal}
+            />
           </View>
         </TouchableWithoutFeedback>
       </SideMenu>

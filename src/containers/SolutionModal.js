@@ -12,7 +12,9 @@ export default class SolutionModal extends React.Component {
           style={styles.container}
         >
           <View style={styles.topBar}></View>
-          <Text>X x</Text>
+          <TouchableOpacity onPress={this.props.toggleModal}>
+            <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
+          </TouchableOpacity>
         </Modal>
     );
   }
