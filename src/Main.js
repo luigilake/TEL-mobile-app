@@ -7,6 +7,8 @@ import styles from '../assets/styles/GeneralStyle'
 import SolutionsHandler from './containers/SolutionsHandler'
 import Menu from './components/SideMenu'
 import SolutionModal from './containers/SolutionModal'
+import categoryFilter from './Javascript/CategoryFilter'
+
 
 export default class Main extends React.Component {
   constructor(props){
@@ -17,7 +19,7 @@ export default class Main extends React.Component {
       menuOpen: false,
       selectedCategory: 'All Solutions',
       modalOpen: false,
-      selectedSolution: {},
+      selectedSolution: null,
       solutions: [],
       favorites: []
     }
@@ -29,6 +31,7 @@ export default class Main extends React.Component {
     this.selectCategory = this.selectCategory.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.setFavorites = this.setFavorites.bind(this);
   }
 
   componentDidMount(){
@@ -78,17 +81,31 @@ export default class Main extends React.Component {
     this.setState({ selectedCategory: category, menuOpen: false })
   }
 
-  openModal(item, favorited){
-    this.setState({ modalOpen: true, selectedSolution: { item, favorited} })
+  openModal(id){
+    this.setState({ modalOpen: true, selectedSolution: id })
   }
 
   closeModal(){
-    this.setState({ modalOpen: false })
+    this.setState({ modalOpen: false, selectedSolution: null })
+  }
+
+  setFavorites(id){
+    let favoritesArray = []
+    if(!this.state.favorites.includes(id)){
+      favoritesArray = this.state.favorites.concat(id)
+    } else {
+      favoritesArray = this.state.favorites.filter( favorite => favorite != id )
+    }
+    this.setState({ favorites: favoritesArray })
   }
 
   render() {
-    console.log(this.state.selectedSolution)
+    let selectedCategory = this.state.selectedCategory;
+    let favorites = this.state.favorites;
+    let data = categoryFilter(this.state.solutions, favorites, selectedCategory)
+
     let menu = <Menu selectCategory={this.selectCategory}/>
+
     return (
       <SideMenu menu={menu} isOpen={this.state.menuOpen}>
         <TouchableWithoutFeedback onPress={this.searchUnfocus}>
@@ -104,10 +121,9 @@ export default class Main extends React.Component {
               toggleMenu={this.toggleMenu}
             />
             <SolutionsHandler
-              solutions={this.state.solutions}
-              favorites={this.state.favorites}
-              selectedCategory={this.state.selectedCategory}
               openModal={this.openModal}
+              setFavorites={this.setFavorites}
+              data={data}
             />
             <SolutionModal
               modalOpen={this.state.modalOpen}

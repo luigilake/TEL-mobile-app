@@ -15,7 +15,7 @@ export default class SolutionTile extends React.PureComponent {
     }
 
     let handleOpenModal = () => {
-      this.props.openModal(this.props.item, this.props.favorited);
+      this.props.openModal(this.props.id);
     }
     return (
         <View style={styles.container}>
