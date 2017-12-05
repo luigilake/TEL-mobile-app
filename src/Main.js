@@ -17,7 +17,9 @@ export default class Main extends React.Component {
       menuOpen: false,
       selectedCategory: 'All Solutions',
       modalOpen: false,
-      selectedSolution: {}
+      selectedSolution: {},
+      solutions: [],
+      favorites: []
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -27,6 +29,28 @@ export default class Main extends React.Component {
     this.selectCategory = this.selectCategory.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentDidMount(){
+    fetch('https://www.techxlab.org/pages.json')
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      let validSolutions = response["Solutions"].filter( solution => {
+        if(solution["publish"]){
+          return(solution["publish"].includes("tel"))
+        }
+      })
+      this.setState({ solutions: validSolutions })
+    })
   }
 
   onSearch(){
