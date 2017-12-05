@@ -24,7 +24,8 @@ export default class Main extends React.Component {
     this.searchUnfocus = this.searchUnfocus.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.selectCategory = this.selectCategory.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   onSearch(){
@@ -52,8 +53,12 @@ export default class Main extends React.Component {
     this.setState({ selectedCategory: category, menuOpen: false })
   }
 
-  toggleModal(){
-    this.setState({ modalOpen: !this.state.modalOpen })
+  openModal(){
+    this.setState({ modalOpen: true })
+  }
+
+  closeModal(){
+    this.setState({ modalOpen: false })
   }
 
   render() {
@@ -74,11 +79,11 @@ export default class Main extends React.Component {
             />
             <SolutionsHandler
               selectedCategory={this.state.selectedCategory}
-              toggleModal={this.toggleModal}
+              openModal={this.openModal}
             />
             <SolutionModal
               modalOpen={this.state.modalOpen}
-              toggleModal={this.toggleModal}
+              closeModal={this.closeModal}
             />
           </View>
         </TouchableWithoutFeedback>

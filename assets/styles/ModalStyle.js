@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
   closeIcon: {
     height: 40,
     width: 40,
+    margin: 10,
+  },
+  closeView: {
+    alignItems: 'flex-end',
   }
 });
 
