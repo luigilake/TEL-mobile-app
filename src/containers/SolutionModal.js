@@ -2,11 +2,16 @@ import React from 'react';
 import { ScrollView, Modal, View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from '../../assets/styles/ModalStyle'
+import ModalText from '../components/ModalText'
 
 export default class SolutionModal extends React.Component {
   render(){
     let data = this.props.data
     let image = `https://images.techxlab.org/${data.image}`
+    let history;
+    if(data["history-and-development"]){
+      history = 'sjndfjk'
+    }
 
     return (
         <Modal
@@ -27,10 +32,7 @@ export default class SolutionModal extends React.Component {
                   </View>
                 </View>
               </Image>
-              <View style={styles.details}>
-                <Text style={styles.overViewTitle}>Solution Overview & Benefits</Text>
-                <Text style={styles.text}>{data["_txt"]}</Text>
-              </View>
+              <ModalText title={'Solution Overview & Benefits'} text={data["_txt"]}/>
             </ScrollView>
         </Modal>
     );
