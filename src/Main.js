@@ -104,6 +104,8 @@ export default class Main extends React.Component {
               toggleMenu={this.toggleMenu}
             />
             <SolutionsHandler
+              solutions={this.state.solutions}
+              favorites={this.state.favorites}
               selectedCategory={this.state.selectedCategory}
               openModal={this.openModal}
             />

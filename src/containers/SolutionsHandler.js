@@ -49,8 +49,8 @@ export default class SolutionsHandler extends React.Component {
 
   render() {
     let selectedCategory = this.props.selectedCategory;
-    let favorites = this.state.favorites;
-    let data = categoryFilter(this.state.solutions, favorites, selectedCategory)
+    let favorites = this.props.favorites;
+    let data = categoryFilter(this.props.solutions, favorites, selectedCategory)
 
     return (
       <View style={styles.container}>
