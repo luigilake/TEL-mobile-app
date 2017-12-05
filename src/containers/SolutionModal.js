@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, View, Text, Image, TouchableOpacity } from 'react-native';
+import { ScrollView, Modal, View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from '../../assets/styles/ModalStyle'
 
@@ -15,7 +15,7 @@ export default class SolutionModal extends React.Component {
           style={styles.container}
         >
           <View style={styles.topBar}></View>
-            <View>
+            <ScrollView bounces={false}>
               <Image resizeMode='contain' style={styles.mainImage} source={{uri: image}}>
                 <View style={styles.titleDiv}>
                   <TouchableOpacity onPress={this.props.closeModal}>
@@ -31,7 +31,7 @@ export default class SolutionModal extends React.Component {
                 <Text style={styles.overViewTitle}>Solution Overview & Benefits</Text>
                 <Text style={styles.text}>{data["_txt"]}</Text>
               </View>
-            </View>
+            </ScrollView>
         </Modal>
     );
   }
