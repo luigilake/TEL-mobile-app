@@ -66,6 +66,9 @@ export default class Main extends React.Component {
               toggleMenu={this.toggleMenu}
             />
             <SolutionsHandler selectedCategory={this.state.selectedCategory}/>
+            <Modal>
+
+            </Modal>
           </View>
         </TouchableWithoutFeedback>
       </SideMenu>
