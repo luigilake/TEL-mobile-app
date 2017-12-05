@@ -106,8 +106,14 @@ export default class Main extends React.Component {
 
     let menu = <Menu selectCategory={this.selectCategory}/>
     let selectedSolutionData;
+    let modal;
     if(this.state.selectedSolution){
       selectedSolutionData = this.state.solutions.find( solution => solution.id == this.state.selectedSolution)
+      modal = <SolutionModal
+        modalOpen={this.state.modalOpen}
+        closeModal={this.closeModal}
+        data={selectedSolutionData}
+      />
     }
 
     return (
@@ -129,11 +135,7 @@ export default class Main extends React.Component {
               setFavorites={this.setFavorites}
               data={data}
             />
-            <SolutionModal
-              modalOpen={this.state.modalOpen}
-              closeModal={this.closeModal}
-              data={selectedSolutionData}
-            />
+            {modal}
           </View>
         </TouchableWithoutFeedback>
       </SideMenu>

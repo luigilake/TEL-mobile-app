@@ -13,8 +13,43 @@ const styles = StyleSheet.create({
     width: 40,
     margin: 10,
   },
-  closeView: {
-    alignItems: 'flex-end',
+  titleDiv: {
+    backgroundColor: 'rgba(50, 49, 49, 0.4)',
+    height: 380,
+    width: 380,
+    justifyContent: 'space-between',
+  },
+  mainImage: {
+    flex: 1,
+    minHeight: 380,
+    backgroundColor: '#333333',
+  },
+  solutionTitle: {
+    fontSize: 40,
+    color: 'white',
+    fontWeight: 'bold',
+    margin: 5,
+    marginLeft: 20,
+  },
+  solutionContact: {
+    fontSize: 30,
+    color: 'white',
+    margin: 5,
+    marginBottom: 20,
+    marginLeft: 20,
+  },
+  details: {
+    margin: 10,
+    marginBottom: 0,
+  },
+  overViewTitle: {
+    fontWeight: 'bold',
+    color: '#d69b19',
+    fontSize: 25,
+    marginBottom: 10,
+  },
+  text: {
+    fontSize: 20
   }
 });
 
