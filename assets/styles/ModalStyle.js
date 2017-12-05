@@ -32,12 +32,23 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   solutionContact: {
-    fontSize: 20,
+    fontSize: 30,
     color: 'white',
-    fontWeight: 'bold',
     margin: 5,
     marginBottom: 20,
     marginLeft: 20,
+  },
+  details: {
+    margin: 10
+  },
+  overViewTitle: {
+    fontWeight: 'bold',
+    color: '#d69b19',
+    fontSize: 25,
+    marginBottom: 10,
+  },
+  text: {
+    fontSize: 20
   }
 });
 

@@ -27,8 +27,10 @@ export default class SolutionModal extends React.Component {
                   </View>
                 </View>
               </Image>
-              <Text>Solution Overview & Benefits</Text>
-
+              <View style={styles.details}>
+                <Text style={styles.overViewTitle}>Solution Overview & Benefits</Text>
+                <Text style={styles.text}>{data["_txt"]}</Text>
+              </View>
             </View>
         </Modal>
     );
