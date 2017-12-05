@@ -65,6 +65,7 @@ export default class SolutionsHandler extends React.Component {
               image={item.image}
               favorited={item.favorited}
               handleFavorite={this.favoriteSolutions}
+              toggleModal={this.props.toggleModal}
             />
           }
         />

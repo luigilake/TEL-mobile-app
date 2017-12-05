@@ -6,6 +6,7 @@ import NavBar from './containers/NavBar'
 import styles from '../assets/styles/GeneralStyle'
 import SolutionsHandler from './containers/SolutionsHandler'
 import Menu from './components/SideMenu'
+import SolutionModal from './containers/SolutionModal'
 
 export default class Main extends React.Component {
   constructor(props){
@@ -14,7 +15,8 @@ export default class Main extends React.Component {
       searching: false,
       searchTerm: '',
       menuOpen: false,
-      selectedCategory: 'All Solutions'
+      selectedCategory: 'All Solutions',
+      modalOpen: false,
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -22,6 +24,7 @@ export default class Main extends React.Component {
     this.searchUnfocus = this.searchUnfocus.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.selectCategory = this.selectCategory.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   onSearch(){
@@ -49,6 +52,10 @@ export default class Main extends React.Component {
     this.setState({ selectedCategory: category, menuOpen: false })
   }
 
+  toggleModal(){
+    this.setState({ modalOpen: !this.state.modalOpen })
+  }
+
   render() {
     let menu = <Menu selectCategory={this.selectCategory}/>
     return (
@@ -65,10 +72,11 @@ export default class Main extends React.Component {
               searchValue={this.state.searchTerm}
               toggleMenu={this.toggleMenu}
             />
-            <SolutionsHandler selectedCategory={this.state.selectedCategory}/>
-            <Modal>
-
-            </Modal>
+            <SolutionsHandler
+              selectedCategory={this.state.selectedCategory}
+              toggleModal={this.toggleModal}
+            />
+            <SolutionModal modalOpen={this.state.modalOpen}/>
           </View>
         </TouchableWithoutFeedback>
       </SideMenu>

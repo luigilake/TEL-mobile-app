@@ -15,7 +15,7 @@ export default class SolutionTile extends React.PureComponent {
     }
     return (
         <View style={styles.container}>
-          <TouchableOpacity style={styles.accessSolution}>
+          <TouchableOpacity style={styles.accessSolution} onPress={this.props.toggleModal}>
             <Image style={styles.image}  resizeMode='contain' source={{uri: this.props.image}} />
             <View style={styles.textBox}>
               <Text style={styles.mainTitle}>{this.props.name}</Text>
