@@ -17,6 +17,7 @@ export default class Main extends React.Component {
       menuOpen: false,
       selectedCategory: 'All Solutions',
       modalOpen: false,
+      selectedSolution: {}
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -53,8 +54,8 @@ export default class Main extends React.Component {
     this.setState({ selectedCategory: category, menuOpen: false })
   }
 
-  openModal(){
-    this.setState({ modalOpen: true })
+  openModal(item, favorited){
+    this.setState({ modalOpen: true, selectedSolution: { item, favorited} })
   }
 
   closeModal(){
@@ -62,6 +63,7 @@ export default class Main extends React.Component {
   }
 
   render() {
+    console.log(this.state.selectedSolution)
     let menu = <Menu selectCategory={this.selectCategory}/>
     return (
       <SideMenu menu={menu} isOpen={this.state.menuOpen}>

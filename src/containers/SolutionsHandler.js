@@ -66,6 +66,7 @@ export default class SolutionsHandler extends React.Component {
               favorited={item.favorited}
               handleFavorite={this.favoriteSolutions}
               openModal={this.props.openModal}
+              item={item}
             />
           }
         />

@@ -11,11 +11,15 @@ export default class SolutionTile extends React.PureComponent {
     }
 
     let handleFavorite = () => {
-      this.props.handleFavorite(this.props.id)
+      this.props.handleFavorite(this.props.id);
+    }
+
+    let handleOpenModal = () => {
+      this.props.openModal(this.props.item, this.props.favorited);
     }
     return (
         <View style={styles.container}>
-          <TouchableOpacity style={styles.accessSolution} onPress={this.props.openModal}>
+          <TouchableOpacity style={styles.accessSolution} onPress={handleOpenModal}>
             <Image style={styles.image}  resizeMode='contain' source={{uri: this.props.image}} />
             <View style={styles.textBox}>
               <Text style={styles.mainTitle}>{this.props.name}</Text>
