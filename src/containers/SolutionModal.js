@@ -19,7 +19,10 @@ export default class SolutionModal extends React.Component {
     let specifications;
     let additionalInfo;
     let contact;
-
+    let favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart.png')}/>
+    if(this.props.favorites.includes(data.id)){
+      favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart-filled.png')}/>
+    }
     if(data["#history-and-development"]){
       history = <ModalText title={'History & Development'} text={data["#history-and-development"]["_txt"]}/>
     }
@@ -51,6 +54,10 @@ export default class SolutionModal extends React.Component {
       outputRange: [0, -50],
       extrapolate: 'clamp',
     });
+
+    let favorite = () => {
+      this.props.setFavorites(data.id);
+    }
 
     return (
         <Modal
@@ -99,6 +106,9 @@ export default class SolutionModal extends React.Component {
               <Text style={styles.headerTEL}>tel</Text>
               <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
               <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
+              <TouchableOpacity onPress={favorite}>
+                {favorited}
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>

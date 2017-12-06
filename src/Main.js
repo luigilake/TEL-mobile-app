@@ -113,6 +113,8 @@ export default class Main extends React.Component {
         modalOpen={this.state.modalOpen}
         closeModal={this.closeModal}
         data={selectedSolutionData}
+        favorites={this.state.favorites}
+        setFavorites={this.setFavorites}
       />
     }
 
