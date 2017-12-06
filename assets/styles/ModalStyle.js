@@ -11,8 +11,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   topBar: {
-    backgroundColor: '#59a345',
-    height: 22,
+    paddingTop: 18,
+    backgroundColor: 'rgba(50, 49, 49, 0)',
+    position: 'absolute'
   },
   closeIcon: {
     height: 40,
@@ -23,17 +24,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(50, 49, 49, 0.4)',
     height: 380,
     width: 380,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
+
   },
   mainImage: {
-    // minHeight: 380,
-    // backgroundColor: '#333333',
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     width: null,
     height: HEADER_MAX_HEIGHT,
+    resizeMode: 'cover',
   },
   solutionTitle: {
     fontSize: 40,
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
   solutionContact: {
     fontSize: 30,
     color: 'white',
-    marginBottom: 20,
     marginLeft: 20,
   },
   details: {
@@ -62,14 +62,14 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    marginTop: 380,
+    marginTop: HEADER_MAX_HEIGHT,
   },
   animated: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#333333',
+    backgroundColor: '#59a345',
     overflow: 'hidden',
   }
 });

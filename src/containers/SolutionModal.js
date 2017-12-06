@@ -38,7 +38,7 @@ export default class SolutionModal extends React.Component {
 
     let headerHeight = this.state.scrollY.interpolate({
       inputRange: [0, 300],
-      outputRange: [380, 60],
+      outputRange: [380, 80],
       extrapolate: 'clamp',
     })
     let imageOpacity = this.state.scrollY.interpolate({
@@ -58,8 +58,6 @@ export default class SolutionModal extends React.Component {
           animationType='slide'
           style={styles.container}
         >
-          <View style={styles.topBar}></View>
-
               <ScrollView
                 bounces={false}
 
@@ -85,13 +83,10 @@ export default class SolutionModal extends React.Component {
 
                 <Animated.Image
                   resizeMode='contain'
-                  style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]} 
+                  style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]}
                   source={{uri: image}}
                 >
                   <View style={styles.titleDiv}>
-                    <TouchableOpacity onPress={this.props.closeModal}>
-                      <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
-                    </TouchableOpacity>
                     <View>
                       <Text style={styles.solutionTitle}>{data.name}</Text>
                       <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
@@ -100,6 +95,9 @@ export default class SolutionModal extends React.Component {
                 </Animated.Image>
 
               </Animated.View>
+              <TouchableOpacity style={styles.topBar} onPress={this.props.closeModal}>
+                <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
+              </TouchableOpacity>
         </Modal>
     );
   }
