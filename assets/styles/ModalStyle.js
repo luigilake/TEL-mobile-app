@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   topBar: {
-    paddingTop: 18,
+    paddingTop: 13,
     backgroundColor: 'rgba(50, 49, 49, 0)',
     position: 'absolute'
   },
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     height: 380,
     width: 380,
     justifyContent: 'flex-end',
-
+    paddingBottom: 15,
   },
   mainImage: {
     position: 'absolute',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     right: 0,
     width: null,
     height: HEADER_MAX_HEIGHT,
-    resizeMode: 'cover',
+    backgroundColor: '#333333',
   },
   solutionTitle: {
     fontSize: 40,

@@ -38,7 +38,7 @@ export default class SolutionModal extends React.Component {
 
     let headerHeight = this.state.scrollY.interpolate({
       inputRange: [0, 300],
-      outputRange: [380, 80],
+      outputRange: [380, 70],
       extrapolate: 'clamp',
     })
     let imageOpacity = this.state.scrollY.interpolate({
