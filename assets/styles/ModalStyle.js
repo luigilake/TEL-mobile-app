@@ -1,5 +1,11 @@
 import { StyleSheet } from 'react-native';
 
+
+
+const HEADER_MAX_HEIGHT = 380;
+const HEADER_MIN_HEIGHT = 60;
+const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
@@ -20,7 +26,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   mainImage: {
-    flex: 1,
     minHeight: 380,
     backgroundColor: '#333333',
   },
@@ -28,13 +33,11 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: 'white',
     fontWeight: 'bold',
-    margin: 5,
     marginLeft: 20,
   },
   solutionContact: {
     fontSize: 30,
     color: 'white',
-    margin: 5,
     marginBottom: 20,
     marginLeft: 20,
   },
@@ -50,6 +53,18 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20
+  },
+  scrollView: {
+    flex: 1,
+    marginTop: 380,
+  },
+  animated: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#03A9F4',
+    overflow: 'hidden',
   }
 });
 
