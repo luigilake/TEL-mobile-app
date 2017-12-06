@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(50, 49, 49, 0)',
     position: 'absolute',
     flexDirection: 'row',
-    alignItems: 'center',
   },
   closeIcon: {
     height: 40,
@@ -74,11 +73,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#59a345',
     overflow: 'hidden',
   },
+  headerDiv: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   headerTEL: {
     color: 'white',
     fontSize: 30,
     fontWeight: 'bold',
-  }
+    margin: 10,
+  },
+  icons: {
+    height: 30,
+    width: 30,
+    margin: 10,
+  },
 });
 
 export default styles;

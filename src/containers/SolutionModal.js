@@ -95,8 +95,10 @@ export default class SolutionModal extends React.Component {
             <TouchableOpacity onPress={this.props.closeModal}>
               <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
             </TouchableOpacity>
-            <View>
+            <View style={styles.headerDiv}>
               <Text style={styles.headerTEL}>tel</Text>
+              <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
+              <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
             </View>
           </View>
         </Modal>
