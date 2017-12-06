@@ -42,11 +42,13 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     marginLeft: 20,
+    marginRight: 20,
   },
   solutionContact: {
     fontSize: 30,
     color: 'white',
     marginLeft: 20,
+    marginRight: 20,
   },
   details: {
     margin: 10,
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     marginTop: HEADER_MAX_HEIGHT,
+    paddingTop: 10,
   },
   animated: {
     position: 'absolute',
