@@ -91,9 +91,14 @@ export default class SolutionModal extends React.Component {
               </View>
             </Animated.Image>
           </Animated.View>
-          <TouchableOpacity style={styles.topBar} onPress={this.props.closeModal}>
-            <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
-          </TouchableOpacity>
+          <View style={styles.topBar}>
+            <TouchableOpacity onPress={this.props.closeModal}>
+              <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
+            </TouchableOpacity>
+            <View>
+              <Text>tel</Text>
+            </View>
+          </View>
         </Modal>
     );
   }

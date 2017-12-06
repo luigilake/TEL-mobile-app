@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
   topBar: {
     paddingTop: 13,
     backgroundColor: 'rgba(50, 49, 49, 0)',
-    position: 'absolute'
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   closeIcon: {
     height: 40,
