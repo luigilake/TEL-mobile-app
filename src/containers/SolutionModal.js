@@ -1,10 +1,16 @@
 import React from 'react';
-import { ScrollView, Modal, View, Text, Image, TouchableOpacity } from 'react-native';
+import { Animated, ScrollView, Modal, View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from '../../assets/styles/ModalStyle'
 import ModalText from '../components/ModalText'
 
 export default class SolutionModal extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      scrollY: new Animated.Value(0),
+    }
+  }
   render(){
     let data = this.props.data
     let image = `https://images.techxlab.org/${data.image}`
@@ -13,6 +19,10 @@ export default class SolutionModal extends React.Component {
     let specifications;
     let additionalInfo;
     let contact;
+    let favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart.png')}/>
+    if(this.props.favorites.includes(data.id)){
+      favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart-filled.png')}/>
+    }
     if(data["#history-and-development"]){
       history = <ModalText title={'History & Development'} text={data["#history-and-development"]["_txt"]}/>
     }
@@ -29,32 +39,77 @@ export default class SolutionModal extends React.Component {
       contact = <ModalText title={'Contact'} text={data["#contact"]["_txt"]}/>
     }
 
+    let headerHeight = this.state.scrollY.interpolate({
+      inputRange: [0, 300],
+      outputRange: [380, 70],
+      extrapolate: 'clamp',
+    })
+    let imageOpacity = this.state.scrollY.interpolate({
+      inputRange: [0, 320 / 2, 320],
+      outputRange: [1, 1, 0],
+      extrapolate: 'clamp',
+    });
+    let imageTranslate = this.state.scrollY.interpolate({
+      inputRange: [0, 320],
+      outputRange: [0, -50],
+      extrapolate: 'clamp',
+    });
+
+    let favorite = () => {
+      this.props.setFavorites(data.id);
+    }
+
     return (
         <Modal
           visible={this.props.modalOpen}
           animationType='slide'
           style={styles.container}
         >
-          <View style={styles.topBar}></View>
-            <ScrollView bounces={false}>
-              <Image resizeMode='contain' style={styles.mainImage} source={{uri: image}}>
-                <View style={styles.titleDiv}>
-                  <TouchableOpacity onPress={this.props.closeModal}>
-                    <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
-                  </TouchableOpacity>
-                  <View>
-                    <Text style={styles.solutionTitle}>{data.name}</Text>
-                    <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
-                  </View>
-                </View>
-              </Image>
+          <ScrollView
+            bounces={false}
+            scrollEventThrottle={16}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
+            )}
+          >
+            <View style={styles.scrollView}>
               <ModalText title={'Solution Overview & Benefits'} text={data["_txt"]}/>
               {history}
               {availability}
               {specifications}
               {additionalInfo}
               {contact}
-            </ScrollView>
+            </View>
+          </ScrollView>
+          <Animated.View
+            style={[styles.animated, {height: headerHeight}]}
+          >
+            <Animated.Image
+              resizeMode='contain'
+              style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]}
+              source={{uri: image}}
+            >
+              <View style={styles.titleDiv}>
+                <View>
+                  <Text style={styles.solutionTitle}>{data.name}</Text>
+                  <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
+                </View>
+              </View>
+            </Animated.Image>
+          </Animated.View>
+          <View style={styles.topBar}>
+            <TouchableOpacity onPress={this.props.closeModal}>
+              <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
+            </TouchableOpacity>
+            <View style={styles.headerDiv}>
+              <Text style={styles.headerTEL}>tel</Text>
+              <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
+              <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
+              <TouchableOpacity onPress={favorite}>
+                {favorited}
+              </TouchableOpacity>
+            </View>
+          </View>
         </Modal>
     );
   }

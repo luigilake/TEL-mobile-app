@@ -1,12 +1,20 @@
 import { StyleSheet } from 'react-native';
 
+
+
+const HEADER_MAX_HEIGHT = 380;
+const HEADER_MIN_HEIGHT = 60;
+const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
   },
   topBar: {
-    backgroundColor: '#59a345',
-    height: 22,
+    paddingTop: 13,
+    backgroundColor: 'rgba(50, 49, 49, 0)',
+    position: 'absolute',
+    flexDirection: 'row',
   },
   closeIcon: {
     height: 40,
@@ -17,26 +25,30 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(50, 49, 49, 0.4)',
     height: 380,
     width: 380,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
+    paddingBottom: 15,
   },
   mainImage: {
-    flex: 1,
-    minHeight: 380,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    width: null,
+    height: HEADER_MAX_HEIGHT,
     backgroundColor: '#333333',
   },
   solutionTitle: {
     fontSize: 40,
     color: 'white',
     fontWeight: 'bold',
-    margin: 5,
     marginLeft: 20,
+    marginRight: 20,
   },
   solutionContact: {
     fontSize: 30,
     color: 'white',
-    margin: 5,
-    marginBottom: 20,
     marginLeft: 20,
+    marginRight: 20,
   },
   details: {
     margin: 10,
@@ -50,7 +62,35 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20
-  }
+  },
+  scrollView: {
+    flex: 1,
+    marginTop: HEADER_MAX_HEIGHT,
+    paddingTop: 10,
+  },
+  animated: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#59a345',
+    overflow: 'hidden',
+  },
+  headerDiv: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerTEL: {
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
+    margin: 10,
+  },
+  icons: {
+    height: 30,
+    width: 30,
+    margin: 10,
+  },
 });
 
 export default styles;
