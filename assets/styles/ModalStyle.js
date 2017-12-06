@@ -73,6 +73,11 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: '#59a345',
     overflow: 'hidden',
+  },
+  headerTEL: {
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
   }
 });
 
