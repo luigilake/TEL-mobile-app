@@ -84,7 +84,6 @@ export default class SolutionModal extends React.Component {
           <Animated.View
             style={[styles.animated, {height: headerHeight}]}
           >
-
             <Animated.Image
               resizeMode='contain'
               style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]}
