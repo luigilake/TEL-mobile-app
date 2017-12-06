@@ -26,8 +26,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   mainImage: {
-    minHeight: 380,
-    backgroundColor: '#333333',
+    // minHeight: 380,
+    // backgroundColor: '#333333',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    width: null,
+    height: HEADER_MAX_HEIGHT,
   },
   solutionTitle: {
     fontSize: 40,
@@ -63,7 +69,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#03A9F4',
+    backgroundColor: '#333333',
     overflow: 'hidden',
   }
 });

@@ -41,7 +41,16 @@ export default class SolutionModal extends React.Component {
       outputRange: [380, 60],
       extrapolate: 'clamp',
     })
-    console.log(headerHeight)
+    let imageOpacity = this.state.scrollY.interpolate({
+      inputRange: [0, 320 / 2, 320],
+      outputRange: [1, 1, 0],
+      extrapolate: 'clamp',
+    });
+    let imageTranslate = this.state.scrollY.interpolate({
+      inputRange: [0, 320],
+      outputRange: [0, -50],
+      extrapolate: 'clamp',
+    });
 
     return (
         <Modal
@@ -74,7 +83,11 @@ export default class SolutionModal extends React.Component {
               style={[styles.animated, {height: headerHeight}]}
             >
 
-                <Image resizeMode='contain' style={styles.mainImage} source={{uri: image}}>
+                <Animated.Image
+                  resizeMode='contain'
+                  style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]} 
+                  source={{uri: image}}
+                >
                   <View style={styles.titleDiv}>
                     <TouchableOpacity onPress={this.props.closeModal}>
                       <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
@@ -84,7 +97,7 @@ export default class SolutionModal extends React.Component {
                       <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
                     </View>
                   </View>
-                </Image>
+                </Animated.Image>
 
               </Animated.View>
         </Modal>
