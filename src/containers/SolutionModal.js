@@ -58,46 +58,42 @@ export default class SolutionModal extends React.Component {
           animationType='slide'
           style={styles.container}
         >
-              <ScrollView
-                bounces={false}
+          <ScrollView
+            bounces={false}
+            scrollEventThrottle={16}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
+            )}
+          >
+            <View style={styles.scrollView}>
+              <ModalText title={'Solution Overview & Benefits'} text={data["_txt"]}/>
+              {history}
+              {availability}
+              {specifications}
+              {additionalInfo}
+              {contact}
+            </View>
+          </ScrollView>
+          <Animated.View
+            style={[styles.animated, {height: headerHeight}]}
+          >
 
-                scrollEventThrottle={16}
-                onScroll={Animated.event(
-                  [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
-                )}
-              >
-                <View style={styles.scrollView}>
-                  <ModalText title={'Solution Overview & Benefits'} text={data["_txt"]}/>
-                  {history}
-                  {availability}
-                  {specifications}
-                  {additionalInfo}
-                  {contact}
-                </View>
-
-
-            </ScrollView>
-            <Animated.View
-              style={[styles.animated, {height: headerHeight}]}
+            <Animated.Image
+              resizeMode='contain'
+              style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]}
+              source={{uri: image}}
             >
-
-                <Animated.Image
-                  resizeMode='contain'
-                  style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]}
-                  source={{uri: image}}
-                >
-                  <View style={styles.titleDiv}>
-                    <View>
-                      <Text style={styles.solutionTitle}>{data.name}</Text>
-                      <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
-                    </View>
-                  </View>
-                </Animated.Image>
-
-              </Animated.View>
-              <TouchableOpacity style={styles.topBar} onPress={this.props.closeModal}>
-                <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
-              </TouchableOpacity>
+              <View style={styles.titleDiv}>
+                <View>
+                  <Text style={styles.solutionTitle}>{data.name}</Text>
+                  <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
+                </View>
+              </View>
+            </Animated.Image>
+          </Animated.View>
+          <TouchableOpacity style={styles.topBar} onPress={this.props.closeModal}>
+            <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
+          </TouchableOpacity>
         </Modal>
     );
   }
