@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, ScrollView, Modal, View, Text, Image, TouchableOpacity } from 'react-native';
+import { Linking, Animated, ScrollView, Modal, View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from '../../assets/styles/ModalStyle'
 import ModalText from '../components/ModalText'
@@ -103,7 +103,9 @@ export default class SolutionModal extends React.Component {
             </TouchableOpacity>
             <View style={styles.headerDiv}>
               <Text style={styles.headerTEL}>tel</Text>
-              <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
+              <TouchableOpacity onPress={() => Linking.openURL('mailto:example@email.com?subject=abcdefg&body=body')}>
+                <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
+              </TouchableOpacity>
               <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
               <TouchableOpacity onPress={favorite}>
                 {favorited}
