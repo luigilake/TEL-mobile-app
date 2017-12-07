@@ -20,6 +20,7 @@ export default class SolutionModal extends React.Component {
     let additionalInfo;
     let contact;
     let solutionLink = data["#additional-information"]["producturl"]
+    let telLink = `https://www.techxlab.org${data["_href"]}`
     let favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart.png')}/>
     if(this.props.favorites.includes(data.id)){
       favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart-filled.png')}/>
