@@ -3,6 +3,7 @@ import { Linking, Animated, ScrollView, Modal, View, Text, Image, TouchableOpaci
 
 import styles from '../../assets/styles/ModalStyle'
 import ModalText from '../components/ModalText'
+import parseMailto from '../Javascript/ParseMailto'
 
 export default class SolutionModal extends React.Component {
   constructor(props){
@@ -40,6 +41,7 @@ export default class SolutionModal extends React.Component {
     if(data["#contact"]){
       contact = <ModalText title={'Contact'} text={data["#contact"]["_txt"]}/>
     }
+    let mailto = parseMailto(data);
 
     let headerHeight = this.state.scrollY.interpolate({
       inputRange: [0, 300],
