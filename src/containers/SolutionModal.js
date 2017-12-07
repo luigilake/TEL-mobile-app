@@ -19,6 +19,7 @@ export default class SolutionModal extends React.Component {
     let specifications;
     let additionalInfo;
     let contact;
+    let solutionLink = data["#additional-information"]["producturl"]
     let favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart.png')}/>
     if(this.props.favorites.includes(data.id)){
       favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart-filled.png')}/>
@@ -102,11 +103,15 @@ export default class SolutionModal extends React.Component {
               <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
             </TouchableOpacity>
             <View style={styles.headerDiv}>
-              <Text style={styles.headerTEL}>tel</Text>
+              <TouchableOpacity onPress={() => Linking.openURL(telLink)}>
+                <Text style={styles.headerTEL}>tel</Text>
+              </TouchableOpacity>
               <TouchableOpacity onPress={() => Linking.openURL('mailto:example@email.com?subject=abcdefg&body=body')}>
                 <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
               </TouchableOpacity>
-              <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
+              <TouchableOpacity onPress={() => Linking.openURL(solutionLink)}>
+                <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
+              </TouchableOpacity>
               <TouchableOpacity onPress={favorite}>
                 {favorited}
               </TouchableOpacity>
