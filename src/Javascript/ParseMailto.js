@@ -10,7 +10,6 @@ export function parseMailto(data){
   } else {
     mailto = `mailto:notifications@techxlab.org?subject=Requesting Information on ${data["name"]} from ${data["#contact"]["name"]}`
   }
-  console.log(mailto)
   return(
     mailto
   );

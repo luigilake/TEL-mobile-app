@@ -109,7 +109,7 @@ export default class SolutionModal extends React.Component {
               <TouchableOpacity onPress={() => Linking.openURL(telLink)}>
                 <Text style={styles.headerTEL}>tel</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => Linking.openURL('mailto:example@email.com?subject=abcdefg&body=body')}>
+              <TouchableOpacity onPress={() => Linking.openURL(mailto)}>
                 <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => Linking.openURL(solutionLink)}>
