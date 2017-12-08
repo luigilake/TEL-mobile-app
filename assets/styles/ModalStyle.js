@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   details: {
-    margin: 10,
+    margin: 15,
     marginBottom: 0,
   },
   overViewTitle: {
