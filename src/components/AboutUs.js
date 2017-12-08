@@ -13,9 +13,9 @@ const AboutUs = props => {
         >
           <View style={styles.topBar}></View>
           <Image style={styles.logo} resizeMode='contain' source={require('../../assets/images/TEL_logo.png')}/>
-          <View>
-            <Text>About Us</Text>
-            <Text>Contact Us</Text>
+          <View style={styles.titleView}>
+            <Text style={styles.title}>About Us</Text>
+            <Text style={styles.title}>Contact Us</Text>
           </View>
         </Modal>
     );

@@ -12,6 +12,13 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 50,
   },
+  titleView: {
+    margin: 10,
+  },
+  title: {
+    fontSize: 25,
+    fontWeight: 'bold'
+  }
 });
 
 export default styles;
