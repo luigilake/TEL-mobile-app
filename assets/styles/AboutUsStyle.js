@@ -25,12 +25,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   contactView: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 5,
   },
   icons: {
-    height: 30,
-    width: 30,
-    margin: 10,
+    height: 20,
+    width: 20,
   },
 });
 
