@@ -13,7 +13,10 @@ const AboutUs = props => {
         >
           <View style={styles.topBar}></View>
           <Image style={styles.logo} resizeMode='contain' source={require('../../assets/images/TEL_logo.png')}/>
-          <Text>Hello world</Text>
+          <View>
+            <Text>About Us</Text>
+            <Text>Contact Us</Text>
+          </View>
         </Modal>
     );
 }
