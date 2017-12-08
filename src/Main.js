@@ -96,13 +96,14 @@ export default class Main extends React.Component {
     } else {
       favoritesArray = this.state.favorites.filter( favorite => favorite != id )
     }
-    this.setState({ favorites: favoritesArray })
+    this.setState({ favorites: favoritesArray, menuOpen: false })
   }
 
   render() {
+    console.log(this.state.searchTerm)
     let selectedCategory = this.state.selectedCategory;
     let favorites = this.state.favorites;
-    let data = categoryFilter(this.state.solutions, favorites, selectedCategory)
+    let data = categoryFilter(this.state.solutions, favorites, selectedCategory, this.state.searchTerm)
 
     let menu = <Menu selectCategory={this.selectCategory}/>
     let selectedSolutionData;
