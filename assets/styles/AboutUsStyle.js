@@ -21,12 +21,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   text: {
-    fontSize: 23,
+    fontSize: 20,
     marginBottom: 20,
   },
   contactView: {
     flexDirection: 'row'
-  }
+  },
+  icons: {
+    height: 30,
+    width: 30,
+    margin: 10,
+  },
 });
 
 export default styles;

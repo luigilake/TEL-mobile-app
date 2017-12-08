@@ -19,8 +19,8 @@ const AboutUs = props => {
         <Text style={styles.text}>{aboutText}</Text>
         <Text style={styles.title}>Contact Us</Text>
         <View style={styles.contactView}>
-          <Image />
-          <Text>Email us at: Contact@techxlab.com</Text>
+          <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
+          <Text style={styles.text}>Email us at: Contact@techxlab.com</Text>
         </View>
       </View>
     </Modal>
