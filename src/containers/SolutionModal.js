@@ -56,22 +56,13 @@ export default class SolutionModal extends React.Component {
             data={data}
             scrollY={this.state.scrollY}
           />
-          <Animated.View
-            style={[styles.animated, {height: headerHeight}]}
-          >
-            <Animated.Image
-              resizeMode='contain'
-              style={[styles.mainImage, {opacity: imageOpacity, transform: [{translateY: imageTranslate}]},]}
-              source={{uri: image}}
-            >
-              <View style={styles.titleDiv}>
-                <View>
-                  <Text style={styles.solutionTitle}>{data.name}</Text>
-                  <Text style={styles.solutionContact}>{data['#contact']['name']}</Text>
-                </View>
-              </View>
-            </Animated.Image>
-          </Animated.View>
+          <SolutionHeader
+            data={data}
+            headerHeight={headerHeight}
+            imageOpacity={imageOpacity}
+            imageTranslate={imageTranslate}
+            image={image}
+          />
           <View style={styles.topBar}>
             <TouchableOpacity onPress={this.props.closeModal}>
               <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
