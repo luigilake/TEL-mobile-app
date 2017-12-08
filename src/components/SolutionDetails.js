@@ -9,7 +9,6 @@ const SolutionDetails = props => {
   let history;
   let availability;
   let specifications;
-  let additionalInfo;
   let contact;
 
   if(props.data["#history-and-development"]){
@@ -20,9 +19,6 @@ const SolutionDetails = props => {
   }
   if(props.data["#specifications"]){
     specifications = <ModalText title={'Specifications'} text={props.data["#specifications"]["_txt"]}/>
-  }
-  if(props.data["#additional-information"]["_txt"] != '\n\n\n'){
-    additionalInfo = <ModalText title={'Additional Information'} text={props.data["#additional-information"]["_txt"]}/>
   }
   if(props.data["#contact"]){
     contact = <ModalText title={'Contact'} text={props.data["#contact"]["_txt"]}/>
@@ -41,7 +37,6 @@ const SolutionDetails = props => {
         {history}
         {availability}
         {specifications}
-        {additionalInfo}
         {contact}
       </View>
     </ScrollView>
