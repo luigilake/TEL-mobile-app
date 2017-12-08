@@ -8,6 +8,7 @@ import SolutionsHandler from './containers/SolutionsHandler'
 import Menu from './components/SideMenu'
 import SolutionModal from './containers/SolutionModal'
 import categoryFilter from './Javascript/CategoryFilter'
+import AboutUs from './components/AboutUs'
 
 
 export default class Main extends React.Component {
@@ -139,6 +140,7 @@ export default class Main extends React.Component {
               data={data}
             />
             {modal}
+            <AboutUs />
           </View>
         </TouchableWithoutFeedback>
       </SideMenu>
