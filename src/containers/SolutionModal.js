@@ -5,6 +5,8 @@ import styles from '../../assets/styles/ModalStyle'
 import ModalText from '../components/ModalText'
 import parseMailto from '../Javascript/ParseMailto'
 import SolutionDetails from '../components/SolutionDetails'
+import SolutionHeader from '../components/SolutionHeader'
+
 
 export default class SolutionModal extends React.Component {
   constructor(props){
