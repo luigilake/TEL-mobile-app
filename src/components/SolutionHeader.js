@@ -2,7 +2,6 @@ import React from 'react';
 import { Animated, View, Text, Image } from 'react-native';
 
 import styles from '../../assets/styles/ModalStyle'
-import ModalText from './ModalText'
 
 
 const SolutionHeader = props => {
