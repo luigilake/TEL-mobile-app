@@ -14,11 +14,15 @@ let renderSolution = (solution, favorites) => {
   );
 }
 
-export function categoryFilter(solutions, favorites, category){
+export function categoryFilter(solutions, favorites, category, searchTerm){
   let data;
   let newSolutions;
+
   switch(category){
     case "All Solutions":
+      newSolutions = solutions;
+      break;
+    case "About Us":
       newSolutions = solutions;
       break;
     case "Favorites":
@@ -62,7 +66,20 @@ export function categoryFilter(solutions, favorites, category){
       })
       break;
   }
-  data = newSolutions.map((solution) => {
+
+  let filteredSolutions = newSolutions;
+  if(searchTerm != ''){
+    let search = searchTerm.toLowerCase()
+    filteredSolutions = newSolutions.filter( solution => {
+      return(
+        solution["_txt"].toLowerCase().includes(search) ||
+        solution["name"].toLowerCase().includes(search) ||
+        solution["#availability"]["_txt"].toLowerCase().includes(search)
+      )
+    })
+  }
+
+  data = filteredSolutions.map((solution) => {
     return(
       renderSolution(solution, favorites)
     )
