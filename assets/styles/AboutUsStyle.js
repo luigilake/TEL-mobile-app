@@ -16,8 +16,16 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   title: {
-    fontSize: 25,
-    fontWeight: 'bold'
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  text: {
+    fontSize: 23,
+    marginBottom: 20,
+  },
+  contactView: {
+    flexDirection: 'row'
   }
 });
 
