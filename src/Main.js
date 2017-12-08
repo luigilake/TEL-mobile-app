@@ -101,10 +101,14 @@ export default class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state.searchTerm)
     let selectedCategory = this.state.selectedCategory;
     let favorites = this.state.favorites;
     let data = categoryFilter(this.state.solutions, favorites, selectedCategory, this.state.searchTerm)
+
+    let aboutUs = false;
+    if(this.state.selectedCategory == 'About Us'){
+      aboutUs = true;
+    }
 
     let menu = <Menu selectCategory={this.selectCategory}/>
     let selectedSolutionData;
@@ -140,7 +144,9 @@ export default class Main extends React.Component {
               data={data}
             />
             {modal}
-            <AboutUs />
+            <AboutUs
+              modalOpen={aboutUs}
+            />
           </View>
         </TouchableWithoutFeedback>
       </SideMenu>

@@ -7,7 +7,7 @@ const Menu = props => {
   let select = (category) => {
     props.selectCategory(category);
   }
-  
+
   // React Native cannot take dynamically created strings in image sources, and so each category button needed to be created manually
   return(
     <View style={styles.container}>
