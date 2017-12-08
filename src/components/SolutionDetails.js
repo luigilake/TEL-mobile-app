@@ -21,7 +21,7 @@ const SolutionDetails = props => {
   if(props.data["#specifications"]){
     specifications = <ModalText title={'Specifications'} text={props.data["#specifications"]["_txt"]}/>
   }
-  if(props.data["#additional-information"]){
+  if(props.data["#additional-information"]["_txt"] != '\n\n\n'){
     additionalInfo = <ModalText title={'Additional Information'} text={props.data["#additional-information"]["_txt"]}/>
   }
   if(props.data["#contact"]){
