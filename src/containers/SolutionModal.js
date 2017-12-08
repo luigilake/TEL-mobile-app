@@ -4,6 +4,7 @@ import { Linking, Animated, ScrollView, Modal, View, Text, Image, TouchableOpaci
 import styles from '../../assets/styles/ModalStyle'
 import ModalText from '../components/ModalText'
 import parseMailto from '../Javascript/ParseMailto'
+import SolutionDetails from '../components/SolutionDetails'
 
 export default class SolutionModal extends React.Component {
   constructor(props){
@@ -15,31 +16,11 @@ export default class SolutionModal extends React.Component {
   render(){
     let data = this.props.data
     let image = `https://images.techxlab.org/${data.image}`
-    let history;
-    let availability;
-    let specifications;
-    let additionalInfo;
-    let contact;
     let solutionLink = data["#additional-information"]["producturl"]
     let telLink = `https://www.techxlab.org${data["_href"]}`
     let favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart.png')}/>
     if(this.props.favorites.includes(data.id)){
       favorited = <Image style={styles.icons} source={require('../../assets/images/clear-heart-filled.png')}/>
-    }
-    if(data["#history-and-development"]){
-      history = <ModalText title={'History & Development'} text={data["#history-and-development"]["_txt"]}/>
-    }
-    if(data["#availability"]){
-      availability = <ModalText title={'Availability'} text={data["#availability"]["_txt"]}/>
-    }
-    if(data["#specifications"]){
-      specifications = <ModalText title={'Specifications'} text={data["#specifications"]["_txt"]}/>
-    }
-    if(data["#additional-information"]){
-      additionalInfo = <ModalText title={'Additional Information'} text={data["#additional-information"]["_txt"]}/>
-    }
-    if(data["#contact"]){
-      contact = <ModalText title={'Contact'} text={data["#contact"]["_txt"]}/>
     }
     let mailto = parseMailto(data);
 
@@ -69,22 +50,10 @@ export default class SolutionModal extends React.Component {
           animationType='slide'
           style={styles.container}
         >
-          <ScrollView
-            bounces={false}
-            scrollEventThrottle={16}
-            onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
-            )}
-          >
-            <View style={styles.scrollView}>
-              <ModalText title={'Solution Overview & Benefits'} text={data["_txt"]}/>
-              {history}
-              {availability}
-              {specifications}
-              {additionalInfo}
-              {contact}
-            </View>
-          </ScrollView>
+          <SolutionDetails
+            data={data}
+            scrollY={this.state.scrollY}
+          />
           <Animated.View
             style={[styles.animated, {height: headerHeight}]}
           >
