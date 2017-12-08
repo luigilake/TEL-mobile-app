@@ -22,6 +22,9 @@ export function categoryFilter(solutions, favorites, category, searchTerm){
     case "All Solutions":
       newSolutions = solutions;
       break;
+    case "About Us":
+      newSolutions = solutions;
+      break;
     case "Favorites":
       newSolutions = solutions.filter( solution => {
         return(favorites.includes(solution.id))
