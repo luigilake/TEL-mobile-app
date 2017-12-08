@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
     height: 100,
     width: 340,
     margin: 20,
+    marginTop: 50,
+    marginBottom: 50,
   },
 });
 
