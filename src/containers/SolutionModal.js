@@ -63,25 +63,14 @@ export default class SolutionModal extends React.Component {
             imageTranslate={imageTranslate}
             image={image}
           />
-          <View style={styles.topBar}>
-            <TouchableOpacity onPress={this.props.closeModal}>
-              <Image style={styles.closeIcon} source={require('../../assets/images/close.png')}/>
-            </TouchableOpacity>
-            <View style={styles.headerDiv}>
-              <TouchableOpacity onPress={() => Linking.openURL(telLink)}>
-                <Text style={styles.headerTEL}>tel</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => Linking.openURL(mailto)}>
-                <Image style={styles.icons} source={require('../../assets/images/mail.png')}/>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => Linking.openURL(solutionLink)}>
-                <Image style={styles.icons} source={require('../../assets/images/globe.png')}/>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={favorite}>
-                {favorited}
-              </TouchableOpacity>
-            </View>
-          </View>
+          <SolutionToolbar
+            closeModal={this.props.closeModal}
+            telLink={telLink}
+            mailto={mailto}
+            solutionLink={solutionLink}
+            favorite={favorite}
+            favorited={favorited}
+          />
         </Modal>
     );
   }
