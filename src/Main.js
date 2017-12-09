@@ -33,6 +33,7 @@ export default class Main extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.setFavorites = this.setFavorites.bind(this);
+    this.closeAboutUs = this.closeAboutUs.bind(this);
   }
 
   componentDidMount(){
@@ -101,7 +102,7 @@ export default class Main extends React.Component {
   }
 
   closeAboutUs(){
-    this.setState({ })
+    this.setState({ selectedCategory: 'All Solutions' })
   }
 
   render() {
@@ -150,6 +151,7 @@ export default class Main extends React.Component {
             {modal}
             <AboutUs
               modalOpen={aboutUs}
+              close={this.closeAboutUs}
             />
           </View>
         </TouchableWithoutFeedback>

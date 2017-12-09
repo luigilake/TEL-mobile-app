@@ -11,7 +11,7 @@ const AboutUs = props => {
 
   return (
     <Modal
-      visible={true}
+      visible={props.modalOpen}
       animationType='slide'
     >
       <View style={styles.topBar}></View>
@@ -28,7 +28,7 @@ const AboutUs = props => {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity style={styles.closeButton}>
+      <TouchableOpacity style={styles.closeButton} onPress={props.close}>
         <Image style={styles.closeIcon} source={require('../../assets/images/dark-close.png')}/>
       </TouchableOpacity>
     </Modal>
@@ -36,5 +36,3 @@ const AboutUs = props => {
 }
 
 export default AboutUs
-
-// toggle modal props.modalOpen
