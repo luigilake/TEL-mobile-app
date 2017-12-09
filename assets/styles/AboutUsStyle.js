@@ -40,6 +40,13 @@ const styles = StyleSheet.create({
   linkText: {
     fontSize: 20,
     color: '#116ee9',
+  },
+  closeIcon: {
+    width: 35,
+    height: 35,
+  },
+  closeButton: {
+
   }
 });
 

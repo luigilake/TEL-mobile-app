@@ -28,6 +28,9 @@ const AboutUs = props => {
           </TouchableOpacity>
         </View>
       </View>
+      <TouchableOpacity style={styles.closeButton}>
+        <Image style={styles.closeIcon} source={require('../../assets/images/dark-close.png')}/>
+      </TouchableOpacity>
     </Modal>
   );
 }
