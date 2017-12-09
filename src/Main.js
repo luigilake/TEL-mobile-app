@@ -100,6 +100,10 @@ export default class Main extends React.Component {
     this.setState({ favorites: favoritesArray, menuOpen: false })
   }
 
+  closeAboutUs(){
+    this.setState({ })
+  }
+
   render() {
     let selectedCategory = this.state.selectedCategory;
     let favorites = this.state.favorites;

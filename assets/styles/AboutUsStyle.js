@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   titleView: {
-    margin: 10,
+    margin: 15,
   },
   title: {
     fontSize: 30,
@@ -46,7 +46,9 @@ const styles = StyleSheet.create({
     height: 35,
   },
   closeButton: {
-
+    position: 'absolute',
+    marginTop: 30,
+    marginLeft: 10,
   }
 });
 
