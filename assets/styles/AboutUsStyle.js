@@ -32,7 +32,11 @@ const styles = StyleSheet.create({
   icons: {
     height: 20,
     width: 20,
+    marginRight: 10,
   },
+  contactText: {
+    fontSize: 20,
+  }
 });
 
 export default styles;
