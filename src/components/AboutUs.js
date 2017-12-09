@@ -7,6 +7,8 @@ import styles from '../../assets/styles/AboutUsStyle'
 const AboutUs = props => {
   let aboutText = 'TEL is a nonprofit organization dedicated to bringing communities out of poverty by driving the adoption of innovative, cost-effective, and sustainable solutions that improve lives at the bottom of the pyramid.\n\nInterested in implementing appropriate technology solutions in developing communities?\n\nContact us and tell us about your project!'
 
+  let mailto = 'mailto:notifications@techxlab.org'
+
   return (
     <Modal
       visible={true}
@@ -20,7 +22,10 @@ const AboutUs = props => {
         <Text style={styles.title}>Contact Us</Text>
         <View style={styles.contactView}>
           <Image style={styles.icons} source={require('../../assets/images/dark-globe.png')}/>
-          <Text style={styles.contactText}>Email us at: Contact@techxlab.com</Text>
+          <Text style={styles.contactText}>Email us at:</Text>
+          <TouchableOpacity onPress={() => Linking.openURL(mailto)}>
+            <Text>Contact@techxlab.com</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>
