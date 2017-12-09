@@ -36,6 +36,10 @@ const styles = StyleSheet.create({
   },
   contactText: {
     fontSize: 20,
+  },
+  linkText: {
+    fontSize: 20,
+    color: '#116ee9',
   }
 });
 

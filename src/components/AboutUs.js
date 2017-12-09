@@ -22,9 +22,9 @@ const AboutUs = props => {
         <Text style={styles.title}>Contact Us</Text>
         <View style={styles.contactView}>
           <Image style={styles.icons} source={require('../../assets/images/dark-globe.png')}/>
-          <Text style={styles.contactText}>Email us at:</Text>
+          <Text style={styles.contactText}>Email us at: </Text>
           <TouchableOpacity onPress={() => Linking.openURL(mailto)}>
-            <Text>Contact@techxlab.com</Text>
+            <Text style={styles.linkText}>Contact@techxlab.com</Text>
           </TouchableOpacity>
         </View>
       </View>
