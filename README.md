@@ -6,7 +6,7 @@ A cross-platform (iOS & Android) app for the [Technology Exchange Lab](https://w
 
 "TEL is dedicated to bringing communities out of poverty by driving the adoption of innovative, cost-effective and sustainable solutions that improve lives at the bottom of the pyramid."
 
-![alt text](https://github.com/luigilake/TEL-mobile-app/assets/TEL-off-grid-preview.jpg)
+![alt text](https://github.com/luigilake/TEL-mobile-app/blob/master/assets/TEL-off-grid-preview.jpg)
 
 ---
 
