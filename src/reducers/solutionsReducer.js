@@ -8,5 +8,25 @@ export default function reducer(state={
   solutions: [],
   favorites: []
 }, action){
+  switch(action.type){
+    case "UPDATE_FAVORITES":
+      return {
+        ...state,
+        favorites: action.payload,
+        menuOpen: false,
+      }
+    case "OPEN_MODAL":
+      return {
+        ...state,
+        modalOpen: true,
+        selectedSolution: action.payload,
+      }
+    case "CLOSE_MODAL":
+      return {
+        ...state,
+        modalOpen: false,
+        selectedSolution: null,
+      }
+  }
   return state;
 }

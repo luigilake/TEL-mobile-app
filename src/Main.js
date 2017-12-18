@@ -11,6 +11,8 @@ import SolutionModal from './containers/SolutionModal'
 import categoryFilter from './Javascript/CategoryFilter'
 import AboutUs from './components/AboutUs'
 
+import { favoriteSolution, openModal, closeModal } from './actions/solutionsActions'
+
 @connect((store) => {
   return {
     favorites: store.solutions.favorites,
@@ -36,7 +38,6 @@ export default class Main extends React.Component {
       modalOpen: false,
       selectedSolution: null,
       solutions: [],
-      favorites: []
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -98,21 +99,24 @@ export default class Main extends React.Component {
   }
 
   openModal(id){
+    this.props.dispatch(openModal(id))
     this.setState({ modalOpen: true, selectedSolution: id })
   }
 
   closeModal(){
+    this.props.dispatch(closeModal())
     this.setState({ modalOpen: false, selectedSolution: null })
   }
 
   setFavorites(id){
+    const { favorites } = this.props;
     let favoritesArray = []
-    if(!this.state.favorites.includes(id)){
-      favoritesArray = this.state.favorites.concat(id)
+    if(!favorites.includes(id)){
+      favoritesArray = favorites.concat(id)
     } else {
-      favoritesArray = this.state.favorites.filter( favorite => favorite != id )
+      favoritesArray = favorites.filter( favorite => favorite != id )
     }
-    this.setState({ favorites: favoritesArray, menuOpen: false })
+    this.props.dispatch(favoriteSolution(favoritesArray))
   }
 
   closeAboutUs(){
@@ -130,8 +134,8 @@ export default class Main extends React.Component {
     console.log(selectedSolution)
     console.log(favorites)
 
-    
-    let data = categoryFilter(this.state.solutions, this.state.favorites, this.state.selectedCategory, this.state.searchTerm)
+
+    let data = categoryFilter(this.state.solutions, favorites, this.state.selectedCategory, this.state.searchTerm)
 
     let aboutUs = false;
     if(this.state.selectedCategory == 'About Us'){
@@ -147,7 +151,7 @@ export default class Main extends React.Component {
         modalOpen={this.state.modalOpen}
         closeModal={this.closeModal}
         data={selectedSolutionData}
-        favorites={this.state.favorites}
+        favorites={favorites}
         setFavorites={this.setFavorites}
       />
     }
