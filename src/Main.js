@@ -35,7 +35,6 @@ export default class Main extends React.Component {
       searchTerm: '',
       menuOpen: false,
       selectedCategory: 'All Solutions',
-      modalOpen: false,
       selectedSolution: null,
       solutions: [],
     }
@@ -148,7 +147,7 @@ export default class Main extends React.Component {
     if(this.state.selectedSolution){
       selectedSolutionData = this.state.solutions.find( solution => solution.id == this.state.selectedSolution)
       modal = <SolutionModal
-        modalOpen={this.state.modalOpen}
+        modalOpen={modalOpen}
         closeModal={this.closeModal}
         data={selectedSolutionData}
         favorites={favorites}
