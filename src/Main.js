@@ -16,12 +16,6 @@ import { favoriteSolution, updateSolutions } from './actions/solutionsActions'
 @connect((store) => {
   return {
     favorites: store.solutions.favorites,
-    menuOpen: store.solutions.menuOpen,
-    modalOpen: store.solutions.modalOpen,
-    searchTerm: store.solutions.searchTerm,
-    searching: store.solutions.searching,
-    selectedCategory: store.solutions.selectedCategory,
-    selectedSolution: store.solutions.selectedSolution,
     solutions: store.solutions.solutions
   }
 })
@@ -156,6 +150,7 @@ export default class Main extends React.Component {
               clearSearch={this.clearSearch}
               searchValue={this.state.searchTerm}
               toggleMenu={this.toggleMenu}
+              fetchSolutions={this.fetchSolutions}
             />
             <SolutionsHandler
               openModal={this.openModal}
