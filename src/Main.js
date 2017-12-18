@@ -35,7 +35,6 @@ export default class Main extends React.Component {
       searchTerm: '',
       menuOpen: false,
       selectedCategory: 'All Solutions',
-      selectedSolution: null,
       solutions: [],
     }
     this.onSearch = this.onSearch.bind(this);
@@ -99,12 +98,10 @@ export default class Main extends React.Component {
 
   openModal(id){
     this.props.dispatch(openModal(id))
-    this.setState({ modalOpen: true, selectedSolution: id })
   }
 
   closeModal(){
     this.props.dispatch(closeModal())
-    this.setState({ modalOpen: false, selectedSolution: null })
   }
 
   setFavorites(id){
@@ -144,8 +141,8 @@ export default class Main extends React.Component {
     let menu = <Menu selectCategory={this.selectCategory}/>
     let selectedSolutionData;
     let modal;
-    if(this.state.selectedSolution){
-      selectedSolutionData = this.state.solutions.find( solution => solution.id == this.state.selectedSolution)
+    if(selectedSolution){
+      selectedSolutionData = this.state.solutions.find( solution => solution.id == selectedSolution)
       modal = <SolutionModal
         modalOpen={modalOpen}
         closeModal={this.closeModal}
