@@ -4,7 +4,6 @@ export default function reducer(state={
 }, action){
   switch(action.type){
     case "UPDATE_FAVORITES":
-    console.log("mem:", state.favorites)
     let newArray;
     if(!state.favorites.includes(action.payload)){
       newArray = [...state.favorites, action.payload];
@@ -18,7 +17,7 @@ export default function reducer(state={
     case "UPDATE_SOLUTIONS":
       return {
         ...state,
-        favorites: action.payload,
+        solutions: action.payload,
       }
   }
   return state;

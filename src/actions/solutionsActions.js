@@ -4,3 +4,10 @@ export function favoriteSolution(favoritesArray){
     payload: favoritesArray,
   }
 }
+
+export function updateSolutions(solutionsArray){
+  return {
+    type: "UPDATE_SOLUTIONS",
+    payload: solutionsArray
+  }
+}

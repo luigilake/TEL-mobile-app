@@ -11,7 +11,7 @@ import SolutionModal from './containers/SolutionModal'
 import categoryFilter from './Javascript/CategoryFilter'
 import AboutUs from './components/AboutUs'
 
-import { favoriteSolution } from './actions/solutionsActions'
+import { favoriteSolution, updateSolutions } from './actions/solutionsActions'
 
 @connect((store) => {
   return {
@@ -37,7 +37,6 @@ export default class Main extends React.Component {
       selectedCategory: 'All Solutions',
       modalOpen: false,
       selectedSolution: null,
-      solutions: [],
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -49,9 +48,15 @@ export default class Main extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.setFavorites = this.setFavorites.bind(this);
     this.closeAboutUs = this.closeAboutUs.bind(this);
+    this.fetchSolutions = this.fetchSolutions.bind(this);
   }
 
   componentDidMount(){
+    this.fetchSolutions()
+  }
+
+  fetchSolutions(){
+    console.log("fetching solutions...")
     fetch('https://www.techxlab.org/pages.json')
     .then(response => {
       if (response.ok) {
@@ -69,7 +74,7 @@ export default class Main extends React.Component {
           return(solution["publish"].includes("tel"))
         }
       })
-      this.setState({ solutions: validSolutions })
+      this.props.dispatch(updateSolutions(validSolutions))
     })
   }
 
@@ -116,11 +121,8 @@ export default class Main extends React.Component {
 
   render() {
     const { favorites, solutions } = this.props;
-    console.log("solutions:", solutions)
     console.log("favorites:", favorites)
-
-
-    let data = categoryFilter(this.state.solutions, favorites, this.state.selectedCategory, this.state.searchTerm)
+    let data = categoryFilter(solutions, favorites, this.state.selectedCategory, this.state.searchTerm)
 
     let aboutUs = false;
     if(this.state.selectedCategory == 'About Us'){
@@ -131,7 +133,7 @@ export default class Main extends React.Component {
     let selectedSolutionData;
     let modal;
     if(this.state.selectedSolution){
-      selectedSolutionData = this.state.solutions.find( solution => solution.id == this.state.selectedSolution)
+      selectedSolutionData = solutions.find( solution => solution.id == this.state.selectedSolution)
       modal = <SolutionModal
         modalOpen={this.state.modalOpen}
         closeModal={this.closeModal}
