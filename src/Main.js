@@ -107,14 +107,7 @@ export default class Main extends React.Component {
   }
 
   setFavorites(id){
-    const { favorites } = this.props;
-    let favoritesArray = []
-    if(!favorites.includes(id)){
-      favoritesArray = favorites.concat(id)
-    } else {
-      favoritesArray = favorites.filter( favorite => favorite != id )
-    }
-    this.props.dispatch(favoriteSolution(favoritesArray))
+    this.props.dispatch(favoriteSolution(id))
   }
 
   closeAboutUs(){
