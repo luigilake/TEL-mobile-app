@@ -13,7 +13,14 @@ import AboutUs from './components/AboutUs'
 
 @connect((store) => {
   return {
-    solutions: store.solutions
+    favorites: store.solutions.favorites,
+    menuOpen: store.solutions.menuOpen,
+    modalOpen: store.solutions.modalOpen,
+    searchTerm: store.solutions.searchTerm,
+    searching: store.solutions.searching,
+    selectedCategory: store.solutions.selectedCategory,
+    selectedSolution: store.solutions.selectedSolution,
+    solutions: store.solutions.solutions
   }
 })
 
@@ -113,11 +120,18 @@ export default class Main extends React.Component {
   }
 
   render() {
-    const { solutions } = this.props;
+    const { favorites, menuOpen, modalOpen, searchTerm, searching, selectedCategory, selectedSolution, solutions } = this.props;
     console.log(solutions)
-    let selectedCategory = this.state.selectedCategory;
-    let favorites = this.state.favorites;
-    let data = categoryFilter(this.state.solutions, favorites, selectedCategory, this.state.searchTerm)
+    console.log(menuOpen)
+    console.log(modalOpen)
+    console.log(searchTerm)
+    console.log(searching)
+    console.log(selectedCategory)
+    console.log(selectedSolution)
+    console.log(favorites)
+
+    
+    let data = categoryFilter(this.state.solutions, this.state.favorites, this.state.selectedCategory, this.state.searchTerm)
 
     let aboutUs = false;
     if(this.state.selectedCategory == 'About Us'){
