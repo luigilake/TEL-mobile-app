@@ -22,13 +22,17 @@ export default class NavBar extends React.Component {
       }
     }
 
+    let getSolutions = () => {
+      this.props.fetchSolutions()
+    }
+
     let refresh = () => {
       Alert.alert(
         'Are you sure you want to update the database?',
         'Checking for updates requires an internet connection and may result in charges when not on WiFi.',
         [
-          {text: 'Update', onPress: () => console.log('OK Pressed')},
-          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: 'Update', onPress: getSolutions},
+          {text: 'Cancel', onPress: () => console.log('Cancelled'), style: 'cancel'},
         ],
         { cancelable: false }
       )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
+import { connect } from "react-redux"
 
 import NavBar from './containers/NavBar'
 import styles from '../assets/styles/GeneralStyle'
@@ -9,6 +10,15 @@ import Menu from './components/SideMenu'
 import SolutionModal from './containers/SolutionModal'
 import categoryFilter from './Javascript/CategoryFilter'
 import AboutUs from './components/AboutUs'
+
+import { favoriteSolution, updateSolutions } from './actions/solutionsActions'
+
+@connect((store) => {
+  return {
+    favorites: store.solutions.favorites,
+    solutions: store.solutions.solutions
+  }
+})
 
 
 export default class Main extends React.Component {
@@ -21,8 +31,6 @@ export default class Main extends React.Component {
       selectedCategory: 'All Solutions',
       modalOpen: false,
       selectedSolution: null,
-      solutions: [],
-      favorites: []
     }
     this.onSearch = this.onSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
@@ -34,9 +42,15 @@ export default class Main extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.setFavorites = this.setFavorites.bind(this);
     this.closeAboutUs = this.closeAboutUs.bind(this);
+    this.fetchSolutions = this.fetchSolutions.bind(this);
   }
 
   componentDidMount(){
+    this.fetchSolutions()
+  }
+
+  fetchSolutions(){
+    console.log("fetching solutions...")
     fetch('https://www.techxlab.org/pages.json')
     .then(response => {
       if (response.ok) {
@@ -54,7 +68,7 @@ export default class Main extends React.Component {
           return(solution["publish"].includes("tel"))
         }
       })
-      this.setState({ solutions: validSolutions })
+      this.props.dispatch(updateSolutions(validSolutions))
     })
   }
 
@@ -92,13 +106,7 @@ export default class Main extends React.Component {
   }
 
   setFavorites(id){
-    let favoritesArray = []
-    if(!this.state.favorites.includes(id)){
-      favoritesArray = this.state.favorites.concat(id)
-    } else {
-      favoritesArray = this.state.favorites.filter( favorite => favorite != id )
-    }
-    this.setState({ favorites: favoritesArray, menuOpen: false })
+    this.props.dispatch(favoriteSolution(id))
   }
 
   closeAboutUs(){
@@ -106,9 +114,9 @@ export default class Main extends React.Component {
   }
 
   render() {
-    let selectedCategory = this.state.selectedCategory;
-    let favorites = this.state.favorites;
-    let data = categoryFilter(this.state.solutions, favorites, selectedCategory, this.state.searchTerm)
+    const { favorites, solutions } = this.props;
+    console.log("favorites:", favorites)
+    let data = categoryFilter(solutions, favorites, this.state.selectedCategory, this.state.searchTerm)
 
     let aboutUs = false;
     if(this.state.selectedCategory == 'About Us'){
@@ -119,12 +127,12 @@ export default class Main extends React.Component {
     let selectedSolutionData;
     let modal;
     if(this.state.selectedSolution){
-      selectedSolutionData = this.state.solutions.find( solution => solution.id == this.state.selectedSolution)
+      selectedSolutionData = solutions.find( solution => solution.id == this.state.selectedSolution)
       modal = <SolutionModal
         modalOpen={this.state.modalOpen}
         closeModal={this.closeModal}
         data={selectedSolutionData}
-        favorites={this.state.favorites}
+        favorites={favorites}
         setFavorites={this.setFavorites}
       />
     }
@@ -142,6 +150,7 @@ export default class Main extends React.Component {
               clearSearch={this.clearSearch}
               searchValue={this.state.searchTerm}
               toggleMenu={this.toggleMenu}
+              fetchSolutions={this.fetchSolutions}
             />
             <SolutionsHandler
               openModal={this.openModal}
