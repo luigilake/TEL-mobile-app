@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Keyboard, TouchableWithoutFeedback, StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
+import { connect } from "react-redux"
 
 import NavBar from './containers/NavBar'
 import styles from '../assets/styles/GeneralStyle'
@@ -9,6 +10,12 @@ import Menu from './components/SideMenu'
 import SolutionModal from './containers/SolutionModal'
 import categoryFilter from './Javascript/CategoryFilter'
 import AboutUs from './components/AboutUs'
+
+@connect((store) => {
+  return {
+    solutions: store.solutions
+  }
+})
 
 
 export default class Main extends React.Component {
@@ -106,6 +113,8 @@ export default class Main extends React.Component {
   }
 
   render() {
+    const { solutions } = this.props;
+    console.log(solutions)
     let selectedCategory = this.state.selectedCategory;
     let favorites = this.state.favorites;
     let data = categoryFilter(this.state.solutions, favorites, selectedCategory, this.state.searchTerm)
