@@ -1,10 +1,4 @@
 export default function reducer(state={
-  searching: false,
-  searchTerm: '',
-  menuOpen: false,
-  selectedCategory: 'All Solutions',
-  modalOpen: false,
-  selectedSolution: null,
   solutions: [],
   favorites: []
 }, action){
@@ -14,18 +8,6 @@ export default function reducer(state={
         ...state,
         favorites: action.payload,
         menuOpen: false,
-      }
-    case "OPEN_MODAL":
-      return {
-        ...state,
-        modalOpen: true,
-        selectedSolution: action.payload,
-      }
-    case "CLOSE_MODAL":
-      return {
-        ...state,
-        modalOpen: false,
-        selectedSolution: null,
       }
   }
   return state;
