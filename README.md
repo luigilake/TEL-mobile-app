@@ -26,5 +26,4 @@ A cross-platform (iOS & Android) app for the [Technology Exchange Lab](https://w
 
  * React Native
  * Redux
- * Redux logger
- * Redux thunk
+ * Redux-persist
