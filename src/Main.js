@@ -50,7 +50,6 @@ export default class Main extends React.Component {
   }
 
   fetchSolutions(){
-    console.log("fetching solutions...")
     fetch('https://www.techxlab.org/pages.json')
     .then(response => {
       if (response.ok) {
@@ -115,7 +114,6 @@ export default class Main extends React.Component {
 
   render() {
     const { favorites, solutions } = this.props;
-    console.log("favorites:", favorites)
     let data = categoryFilter(solutions, favorites, this.state.selectedCategory, this.state.searchTerm)
 
     let aboutUs = false;
